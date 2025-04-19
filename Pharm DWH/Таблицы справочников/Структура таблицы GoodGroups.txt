@@ -1,0 +1,12 @@
+CREATE TABLE [dbo].[GoodGroups] (
+    [id]               INT            NOT NULL,
+    [external_id]      INT            NULL,
+    [parent_id]        INT            NULL,
+    [parent_ext_id]    INT            NULL,
+    [index_tree]       NVARCHAR (255) NULL,
+    [created_date]     DATETIME       NULL,
+    [last_update_date] DATETIME       NULL,
+    [name]             NVARCHAR (255) NULL,
+    [not_show_in_shop] BIT            NULL
+);
+

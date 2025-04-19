@@ -1,0 +1,20 @@
+-- Чтение данных из XML-файла и вставка в таблицу Manufactures
+DECLARE @xmlData XML;
+
+-- Чтение файла с данными
+SELECT @xmlData = BulkColumn
+FROM OPENROWSET(BULK 'T:\Новая папка\Рабочий стол\manufactures.xml', SINGLE_BLOB) AS FileContent;
+
+-- Вставка данных в таблицу
+INSERT INTO Manufactures (
+    ID,
+    Created_Date,
+    Last_Update_Date,
+    Name
+)
+SELECT 
+    TRY_CAST(manufacturer.value('(id)[1]', 'NVARCHAR(50)') AS INT),            -- Преобразование ID в INT
+    manufacturer.value('(created_date)[1]', 'NVARCHAR(20)'),                  -- Дата создания
+    manufacturer.value('(last_update_date)[1]', 'NVARCHAR(20)'),              -- Дата последнего обновления
+    manufacturer.value('(name)[1]', 'NVARCHAR(255)')                          -- Наименование производителя
+FROM @xmlData.nodes('/root/manufacturers/manufacturer') AS XMLData(manufacturer);

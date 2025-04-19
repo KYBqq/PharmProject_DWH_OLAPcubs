@@ -1,0 +1,53 @@
+CREATE PROCEDURE InsertDates
+AS
+BEGIN
+    DECLARE @currentDate DATE = '2019-01-01';
+    DECLARE @endDate DATE = '2019-02-28';
+    DECLARE @currentDateTime DATETIME;
+    DECLARE @endDateTime DATETIME;
+    
+    -- Логирование начала загрузки
+    PRINT 'Загрузка дат начата...';
+    
+    BEGIN TRY
+        -- Цикл для вставки всех дат.
+        WHILE @currentDate <= @endDate
+        BEGIN
+            SET @currentDateTime = CAST(@currentDate AS DATETIME);
+            SET @endDateTime = DATEADD(DAY, 1, @currentDateTime);
+            
+            -- Вложенный цикл для вставки временных меток на каждый день с шагом в 1 секунду
+            WHILE @currentDateTime < @endDateTime
+            BEGIN
+                INSERT INTO [dbo].[Date] (FullDateTime, FullDate, Day, Month, Year, WeekDay, Time)
+                VALUES 
+                    (@currentDateTime, 
+                     @currentDate, 
+                     DAY(@currentDate), 
+                     MONTH(@currentDate), 
+                     YEAR(@currentDate), 
+                     DATENAME(WEEKDAY, @currentDate),
+                     CAST(@currentDateTime AS TIME));
+                
+                -- Переход к следующей секунде
+                SET @currentDateTime = DATEADD(SECOND, 1, @currentDateTime);
+            END
+            
+            -- Переход к следующему дню
+            SET @currentDate = DATEADD(DAY, 1, @currentDate);
+        END
+
+        -- Логирование успешной загрузки
+        PRINT 'Даты успешно загружены.';
+    END TRY
+    BEGIN CATCH
+        -- Логирование ошибки
+        PRINT 'Произошла ошибка при загрузке дат:';
+        PRINT 'Сообщение об ошибке: ' + ERROR_MESSAGE();
+        PRINT 'Номер ошибки: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
+        PRINT 'Серьезность ошибки: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
+        PRINT 'Состояние ошибки: ' + CAST(ERROR_STATE() AS NVARCHAR(10));
+        PRINT 'Ошибка на строке: ' + CAST(ERROR_LINE() AS NVARCHAR(10));
+        PRINT 'Ошибка в процедуре: ' + ERROR_PROCEDURE();
+    END CATCH
+END;

@@ -1,0 +1,21 @@
+CREATE TABLE [dbo].[Date] (
+    [DateID]                INT           IDENTITY (1, 1) NOT NULL,
+    [FullDateTime]          DATETIME      NOT NULL,
+    [FullDate]              DATE          NOT NULL,
+    [Day]                   INT           NOT NULL,
+    [Month]                 INT           NOT NULL,
+    [Year]                  INT           NOT NULL,
+    [WeekDay]               NVARCHAR (20) NOT NULL,
+    [Time]                  TIME (7)      NOT NULL,
+    [FullDateTimeDocIncome] DATETIME      NULL,
+    [FullDateTimeAccIncome] DATETIME      NULL,
+    [YearDocIncome]         INT           NULL,
+    [MonthDocIncome]        INT           NULL,
+    [DayDocIncome]          INT           NULL,
+    [TimeDocIncome]         TIME (7)      NULL,
+    [YearAccIncome]         INT           NULL,
+    [MonthAccIncome]        INT           NULL,
+    [DayAccIncome]          INT           NULL,
+    [TimeAccIncome]         TIME (7)      NULL
+);
+

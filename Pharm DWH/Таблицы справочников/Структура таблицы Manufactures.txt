@@ -1,0 +1,7 @@
+CREATE TABLE [dbo].[Manufactures] (
+    [ID]               INT            NOT NULL,
+    [Created_Date]     DATETIME       NULL,
+    [Last_Update_Date] DATETIME       NULL,
+    [Name]             NVARCHAR (255) NULL
+);
+

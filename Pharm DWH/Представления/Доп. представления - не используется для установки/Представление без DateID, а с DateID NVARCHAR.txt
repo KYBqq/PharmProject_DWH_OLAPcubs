@@ -1,0 +1,13 @@
+CREATE VIEW cubDate AS 
+SELECT 
+DateID_Nvarchar,
+FullDateTime,	
+FullDate,
+Month,	
+Year,
+Day,	
+WeekDay,	
+Time	
+FROM Date
+
+*Тест использования ID Nvarchar в кубе, ошибки при сборке, плюс тестирование скорости. Не эффективен!

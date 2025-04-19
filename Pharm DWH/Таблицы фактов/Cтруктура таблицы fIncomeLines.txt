@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[fIncomeLines] (
+    [GUIDEincome]       UNIQUEIDENTIFIER NULL,
+    [line_id]           INT              NOT NULL,
+    [item_id]           INT              NULL,
+    [onhand_id]         INT              NULL,
+    [guid]              UNIQUEIDENTIFIER NULL,
+    [item_ext_id]       INT              NULL,
+    [external_id]       INT              NULL,
+    [manuf_date]        DATE             NULL,
+    [expir_date]        DATE             NULL,
+    [item_name]         NVARCHAR (255)   NULL,
+    [quantity]          DECIMAL (20, 10) NULL,
+    [quantity_expected] DECIMAL (20, 10) NULL,
+    [barcode]           NVARCHAR (255)   NULL,
+    [price]             DECIMAL (20, 10) NULL,
+    [amount]            DECIMAL (20, 10) NULL,
+    [lot_number]        NVARCHAR (255)   NULL,
+    [vat_rate]          DECIMAL (20, 10) NULL,
+    [vat_sum]           DECIMAL (20, 10) NULL,
+    [sum_minus_vat]     DECIMAL (20, 10) NULL
+);
+

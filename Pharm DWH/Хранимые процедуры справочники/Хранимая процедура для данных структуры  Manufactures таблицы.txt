@@ -1,0 +1,46 @@
+CREATE PROCEDURE InsertManufacturesFromXml
+    @FilePath NVARCHAR(255)  -- Параметр для пути к файлу XML
+AS
+BEGIN
+    -- Логирование начала загрузки
+    PRINT 'Загрузка данных начата...'
+
+    BEGIN TRY
+        DECLARE @xmlData XML;
+        DECLARE @sql NVARCHAR(MAX);
+
+        -- Формируем динамический SQL для чтения файла
+        SET @sql = N'SELECT @xmlData = BulkColumn
+                    FROM OPENROWSET(BULK ''' + @FilePath + ''', SINGLE_BLOB) AS FileContent;';
+
+        -- Выполняем динамический SQL
+        EXEC sp_executesql @sql, N'@xmlData XML OUTPUT', @xmlData OUTPUT;
+
+        -- Вставка данных в таблицу Manufactures
+        INSERT INTO Manufactures (
+            ID,
+            Created_Date,
+            Last_Update_Date,
+            Name
+        )
+        SELECT 
+            TRY_CONVERT(INT, manufacturer.value('(id)[1]', 'NVARCHAR(255)')),           
+            TRY_CONVERT(DATETIME, manufacturer.value('(created_date)[1]', 'NVARCHAR(40)'), 120),                  -- Дата создания
+            TRY_CONVERT(DATETIME, manufacturer.value('(last_update_date)[1]', 'NVARCHAR(20)'), 120),              -- Дата последнего обновления
+            manufacturer.value('(name)[1]', 'NVARCHAR(255)')                          -- Наименование производителя
+        FROM @xmlData.nodes('/root/manufacturers/manufacturer') AS XMLData(manufacturer);
+
+        -- Логирование успешной загрузки
+        PRINT 'Данные успешно загружены.';
+    END TRY
+    BEGIN CATCH
+        -- Логирование ошибки
+        PRINT 'Произошла ошибка при загрузке данных:';
+        PRINT 'Сообщение об ошибке: ' + ERROR_MESSAGE();
+        PRINT 'Номер ошибки: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
+        PRINT 'Серьезность ошибки: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
+        PRINT 'Состояние ошибки: ' + CAST(ERROR_STATE() AS NVARCHAR(10));
+        PRINT 'Ошибка на строке: ' + CAST(ERROR_LINE() AS NVARCHAR(10));
+        PRINT 'Ошибка в процедуре: ' + ERROR_PROCEDURE();
+    END CATCH
+END;

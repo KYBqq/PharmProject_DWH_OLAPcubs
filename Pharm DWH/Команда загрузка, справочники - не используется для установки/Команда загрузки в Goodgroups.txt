@@ -1,0 +1,30 @@
+-- Чтение данных из XML-файла и вставка в таблицу GoodGroups
+DECLARE @xmlData XML;
+
+-- Чтение файла с данными
+SELECT @xmlData = BulkColumn
+FROM OPENROWSET(BULK 'T:\Новая папка\Рабочий стол\goodgroups.xml', SINGLE_BLOB) AS FileContent;
+
+-- Вставка данных в таблицу
+INSERT INTO dbo.GoodGroups (
+    id,
+    external_id,
+    parent_id,
+    parent_ext_id,
+    index_tree,
+    created_date,
+    last_update_date,
+    name,
+    not_show_in_shop
+)
+SELECT 
+    TRY_CAST(items.value('(id)[1]', 'NVARCHAR(50)') AS INT),               -- Преобразуем id в INT
+    items.value('(external_id)[1]', 'NVARCHAR(510)'),                     -- external_id (может быть пустым)
+    TRY_CAST(items.value('(parent_id)[1]', 'NVARCHAR(50)') AS INT),        -- parent_id
+    items.value('(parent_ext_id)[1]', 'NVARCHAR(510)'),                   -- parent_ext_id (может быть пустым)
+    items.value('(index_tree)[1]', 'NVARCHAR(510)'),                      -- index_tree
+    items.value('(created_date)[1]', 'NVARCHAR(40)'),                     -- created_date
+    items.value('(last_update_date)[1]', 'NVARCHAR(40)'),                 -- last_update_date
+    items.value('(name)[1]', 'NVARCHAR(510)'),                            -- name
+    TRY_CAST(items.value('(not_show_in_shop)[1]', 'NVARCHAR(50)') AS BIT) -- not_show_in_shop
+FROM @xmlData.nodes('/root/item_groups/item_group') AS XMLData(items);

@@ -1,0 +1,136 @@
+CREATE PROCEDURE fInsertReceiptandItemsFromXml
+    @FilePath NVARCHAR(255)
+AS
+BEGIN
+    PRINT 'Загрузка данных начата...';
+
+    BEGIN TRY
+        DECLARE @xmlData XML;
+        DECLARE @sql NVARCHAR(MAX);
+
+        -- Загружаем XML-данные из файла
+        SET @sql = N'SELECT @xmlData = BulkColumn
+                    FROM OPENROWSET(BULK ''' + @FilePath + ''', SINGLE_BLOB) AS FileContent;';
+        EXEC sp_executesql @sql, N'@xmlData XML OUTPUT', @xmlData OUTPUT;
+
+        -- Вставка данных в таблицу fReceipts
+        INSERT INTO fReceipts (
+            receipt_id,
+            terminalid,
+            warehouseid,
+            users_id,
+            dates,
+            marker,
+            corp_code,
+            fr_session,
+            doc_type,
+            doc_num,
+            doc_num_session,
+            discount,
+            discount_misc,
+            amount,
+            round_amount,
+            pay_cash,
+            pay_card,
+            pay_tare,
+            pay_credit,
+            pay_bonus_id,
+            pay_bonus_amount,
+            pinpad_name,
+            terminal_number,
+            short_fiscal_serial_number,
+            device_model_name,
+            device_model_version,
+            terminal_description,
+            is_electronic,
+            fiscal_attribute,
+            vat10_sum,
+            vat18_sum,
+            vat20_sum,
+            items_count
+        )
+        SELECT  
+            TRY_CONVERT(UNIQUEIDENTIFIER, receipt.value('(receipt_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(BIGINT, receipt.value('(terminalid)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, receipt.value('(warehouseid)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, receipt.value('(user_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(DATETIME, receipt.value('(date)[1]', 'NVARCHAR(255)'), 104),
+            receipt.value('(marker)[1]', 'NVARCHAR(255)'),
+            receipt.value('(corp_code)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(INT, receipt.value('(fr_session)[1]', 'NVARCHAR(255)')),
+            receipt.value('(doc_type)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(INT, receipt.value('(doc_num)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, receipt.value('(doc_num_session)[1]', 'NVARCHAR(255)')),
+            TRY_CAST(receipt.value('(discount)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(discount_misc)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(amount)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(round_amount)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(pay_cash)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(pay_card)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(pay_tare)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(pay_credit)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CONVERT(INT, receipt.value('(pay_bonus_id)[1]', 'NVARCHAR(50)')),
+            TRY_CAST(receipt.value('(pay_bonus_amount)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            receipt.value('(pinpad_name)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(INT, receipt.value('(terminal_number)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, receipt.value('(short_fiscal_serial_number)[1]', 'NVARCHAR(255)')),
+            receipt.value('(device_model_name)[1]', 'NVARCHAR(255)'),
+            receipt.value('(device_model_version)[1]', 'NVARCHAR(255)'),
+            receipt.value('(terminal_description)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(INT, receipt.value('(is_electronic)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(BIGINT, receipt.value('(fiscal_attribute)[1]', 'NVARCHAR(255)')),
+            TRY_CAST(receipt.value('(vat10_sum)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(vat18_sum)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(vat20_sum)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(receipt.value('(items_count)[1]', 'INT') AS INT)
+        FROM @xmlData.nodes('/root/receipts/receipt') AS receipt(receipt);
+
+        -- Вставка данных в таблицу fReceiptsLines с добавлением receipt_id
+        INSERT INTO fReceiptsLines (
+            line_id,
+            itemid,
+            quantity,
+            pricebase,
+            pricesale,
+            discount,
+            amount,
+            barcode,
+            cogs,
+            users_id,
+            vat_applied,
+            vat_amount,
+            onhand_id,
+            receipt_id
+        )
+        SELECT
+            TRY_CONVERT(UNIQUEIDENTIFIER, line.value('(line_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, line.value('(itemid)[1]', 'NVARCHAR(255)')),
+            TRY_CAST(line.value('(quantity)[1]', 'DECIMAL(10, 3)') AS DECIMAL(10, 3)),
+            TRY_CAST(line.value('(pricebase)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(line.value('(pricesale)[1]', 'DECIMAL(10, 4)') AS DECIMAL(10, 4)),
+            TRY_CAST(line.value('(discount)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(line.value('(amount)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            line.value('(barcode)[1]', 'NVARCHAR(50)'),
+            TRY_CAST(line.value('(cogs)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CONVERT(INT, line.value('(user_id)[1]', 'NVARCHAR(255)')),
+            TRY_CAST(line.value('(vat_applied)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CAST(line.value('(vat_amount)[1]', 'DECIMAL(10, 2)') AS DECIMAL(10, 2)),
+            TRY_CONVERT(INT, line.value('(onhand_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(UNIQUEIDENTIFIER, receipt.value('(receipt_id)[1]', 'NVARCHAR(255)'))
+        FROM @xmlData.nodes('/root/receipts/receipt') AS receipt(receipt)
+        CROSS APPLY receipt.nodes('items/item') AS line(line);
+
+        -- Логирование успешной загрузки
+        PRINT 'Данные успешно загружены.';
+    END TRY
+    BEGIN CATCH
+        -- Логирование ошибки
+        PRINT 'Произошла ошибка при загрузке данных:';
+        PRINT 'Сообщение об ошибке: ' + ERROR_MESSAGE();
+        PRINT 'Номер ошибки: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
+        PRINT 'Серьезность ошибки: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
+        PRINT 'Состояние ошибки: ' + CAST(ERROR_STATE() AS NVARCHAR(10));
+        PRINT 'Ошибка на строке: ' + CAST(ERROR_LINE() AS NVARCHAR(10));
+        PRINT 'Ошибка в процедуре: ' + ERROR_PROCEDURE();
+    END CATCH
+END;

@@ -1,0 +1,90 @@
+CREATE PROCEDURE fInsertReturnsFromXml
+    @FilePath NVARCHAR(255)
+AS
+BEGIN
+    PRINT 'Загрузка данных начата...';
+
+    BEGIN TRY
+        DECLARE @xmlData XML;
+        DECLARE @sql NVARCHAR(MAX);
+
+        -- Загружаем XML-данные из файла
+        SET @sql = N'SELECT @xmlData = BulkColumn
+                    FROM OPENROWSET(BULK ''' + @FilePath + ''', SINGLE_BLOB) AS FileContent;';
+        EXEC sp_executesql @sql, N'@xmlData XML OUTPUT', @xmlData OUTPUT;
+
+        -- Вставка данных в таблицу fReturns
+        INSERT INTO fReturns (
+            id, external_id, guid, supplier_id, supplier_external_id, supplier_inn, supplier_kpp,
+            warehouse_id, warehouse_external_id, created_date, created_by, last_update_date, last_update_by,
+            docnum, docdate, supplier_name, supplier_type, supplier_type_name,
+            supplier_readonly_inflow, amount, status, status_name, comment
+        )
+        SELECT
+            TRY_CONVERT(INT, returns.value('(id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT,returns.value('(external_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(UNIQUEIDENTIFIER, returns.value('(guid)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, returns.value('(supplier_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, returns.value('(supplier_external_id)[1]', 'NVARCHAR(255)')),
+            returns.value('(supplier_inn)[1]', 'NVARCHAR(255)'),
+            returns.value('(supplier_kpp)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(INT, returns.value('(warehouse_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, returns.value('(warehouse_external_id)[1]', 'NVARCHAR(255)')),
+			TRY_CONVERT(DATETIME, returns.value('(created_date)[1]', 'NVARCHAR(255)'), 120),
+            TRY_CAST(returns.value('(created_by)[1]', 'NVARCHAR(255)') AS DECIMAL(10, 4)),
+			TRY_CONVERT(DATETIME, returns.value('(last_update_date)[1]', 'NVARCHAR(255)'), 120),
+            TRY_CAST(returns.value('(last_update_by)[1]', 'NVARCHAR(255)') AS DECIMAL(10, 4)),
+            returns.value('(docnum)[1]', 'NVARCHAR(255)'),
+			TRY_CONVERT(DATETIME, returns.value('(docdate)[1]', 'NVARCHAR(255)'), 120),
+            returns.value('(supplier_name)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(INT, returns.value('(supplier_type)[1]', 'NVARCHAR(255)')),
+            returns.value('(supplier_type_name)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(returns.value('(supplier_readonly_inflow)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+            TRY_CAST(returns.value('(amount)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+            returns.value('(status)[1]', 'NVARCHAR(255)'),
+            returns.value('(status_name)[1]', 'NVARCHAR(255)'),
+            returns.value('(comment)[1]', 'NVARCHAR(MAX)')
+        FROM @xmlData.nodes('/root/returns/return') AS returns(returns);
+
+        -- Вставка данных в таблицу fReturnsLines с добавлением GUIDEreturns
+        INSERT INTO fReturnsLines (
+            GUIDEreturns, line_id, guid, item_id, item_ext_id, manuf_date,
+            expir_date, item_name, quantity, barcode, price, amount, lot_number
+        )
+        SELECT
+            TRY_CONVERT(UNIQUEIDENTIFIER, returns.value('(guid)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, items.value('(line_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(UNIQUEIDENTIFIER, items.value('(guid)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, items.value('(item_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, items.value('(item_ext_id)[1]', 'NVARCHAR(255)')),
+						CASE
+    WHEN items.value('(manuf_date)[1]', 'NVARCHAR(255)') = '0000-00-00' 
+         OR items.value('(manuf_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATE, items.value('(manuf_date)[1]', 'NVARCHAR(255)'))
+END AS manuf_date,
+						CASE
+    WHEN items.value('(expir_date)[1]', 'NVARCHAR(255)') = '0000-00-00' 
+         OR items.value('(expir_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATE, items.value('(expir_date)[1]', 'NVARCHAR(255)'))
+END AS expir_date,
+            items.value('(item_name)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(items.value('(quantity)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+            items.value('(barcode)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(items.value('(price)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+            TRY_CAST(items.value('(amount)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+            items.value('(lot_number)[1]', 'NVARCHAR(255)')
+        FROM @xmlData.nodes('/root/returns/return') AS returns(returns)
+        CROSS APPLY returns.nodes('items/item') AS items(items);
+
+        PRINT 'Данные успешно загружены.';
+    END TRY
+    BEGIN CATCH
+        PRINT 'Произошла ошибка при загрузке данных:';
+        PRINT 'Сообщение об ошибке: ' + ERROR_MESSAGE();
+        PRINT 'Номер ошибки: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
+        PRINT 'Серьезность ошибки: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
+        PRINT 'Состояние ошибки: ' + CAST(ERROR_STATE() AS NVARCHAR(10));
+        PRINT 'Ошибка на строке: ' + CAST(ERROR_LINE() AS NVARCHAR(10));
+        PRINT 'Ошибка в процедуре: ' + ERROR_PROCEDURE();
+    END CATCH
+END;

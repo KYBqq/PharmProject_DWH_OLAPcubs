@@ -1,0 +1,1 @@
+EXEC InsertManufacturesFromXml @FilePath = 'T:\Новая папка\Рабочий стол\manufactures.xml';

@@ -1,0 +1,1 @@
+EXEC fInsertReceiptandItemsFromXml @FilePath = N'T:\Новая папка\Рабочий стол\receipt.xml';

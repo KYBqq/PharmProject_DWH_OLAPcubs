@@ -1,0 +1,22 @@
+﻿SELECT
+SUM(r_discount) as FI_discount,
+SUM(r_discount_misc) as FI_discount_misc,
+SUM(r_amount) as FI_amount,
+SUM(r_round_amount) as FI_round_amount,
+SUM(r_pay_cash) as FI_pay_cash,
+SUM(r_pay_card) as FI_pay_card,
+SUM(r_pay_tare) as FI_pay_tare,
+SUM(r_pay_credit) as FI_pay_credit,
+SUM(r_pay_bonus_amount) as FI_pay_bonus_amount,
+SUM(r_vat10_sum) as FI_vat10_sum,
+SUM(r_vat18_sum) as FI_vat18_sum,
+SUM(r_vat20_sum) as FI_vat20_sum,
+SUM(rl_quantity) as quantity,
+SUM(rl_pricebase) as pricebase,
+SUM(rl_pricesale) as pricesale,
+SUM(rl_discount) as FIL_discount,
+SUM(rl_amount) as FIL_amount,
+SUM(rl_cogs) as cogs,
+SUM(rl_vat_applied) as vat_applied,
+SUM(rl_vat_amount) as FIL_vat_amount
+FROM zvezdafReceiptPlusManuals

@@ -1,0 +1,6 @@
+CREATE TABLE [dbo].[fStock] (
+    [id]    INT              NOT NULL,
+    [name]  NVARCHAR (255)   NULL,
+    [count] DECIMAL (20, 10) NULL
+);
+

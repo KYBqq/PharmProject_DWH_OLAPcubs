@@ -1,0 +1,1 @@
+EXEC fInsertReturnsFromXml @FilePath = N'T:\Новая папка\Рабочий стол\returns.xml';

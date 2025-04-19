@@ -1,0 +1,44 @@
+CREATE VIEW GoodsPlusManufactures as
+SELECT 
+g.id as id,
+g.external_id	as external_id,
+g.group_ids as group_ids,
+g.group_ext_ids as group_ext_ids,	
+g.manufacturer_id	as manufacturer_id,
+g.html_template_id as html_template_id,
+g.barcodes as barcodes,
+g.created_date as created_date,		
+g.last_update_date as last_update_date,	
+g.name as name, 	
+g.description	as description,	
+g.article	as article,	
+g.enabled	as enabled,
+g.sales_weight as sales_weight,
+g.volume as volume,
+g.type as type,
+g.weight_good_flag as weight_good_flag,		
+g.not_show_in_shop as not_show_in_shop,
+g.vat_percent	as vat_percent,
+g.attribute1 as attribute1,
+g.attribute2 as attribute2,
+g.attribute3 as attribute3,
+g.attribute4 as attribute4,
+g.attribute5	as attribute5,
+g.attribute6	as attribute6,
+g.attribute7	as attribute7,	
+g.attribute8	as attribute8,
+g.attribute9	as attribute9,
+g.attribute10	as attribute10,
+g.attribute11	as attribute11,
+g.attribute12	as attribute12,
+g.attribute13	as attribute13,
+g.attribute14	as attribute14,
+g.attribute15 as attribute15,
+m.ID as mID,            
+m.Name as mManufactures 
+FROM  
+    [dbo].[Goods] g
+LEFT JOIN 
+    [dbo].[Manufactures] m
+ON 
+    g.manufacturer_id = m.id;

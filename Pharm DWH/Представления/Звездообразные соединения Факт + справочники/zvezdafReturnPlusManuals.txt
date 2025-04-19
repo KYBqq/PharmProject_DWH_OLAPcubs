@@ -1,0 +1,102 @@
+ --Звездообразное-соединение: fReturn: GoodsPlusMplusGG (Goods, GoodGroups, Manufactures), Suppliers, Date.
+
+CREATE VIEW zvezdafReturnPlusManuals AS 
+SELECT 
+fr_id,  
+fr_guid,       
+fr_warehouse_id,
+d.DateID as idcreated_date,
+d.DateID as idcreated_dateDate,
+d.DateID as idcreatedYear,
+d.DateID as idcreatedMonth,
+d.DateID as idcreatedDay,
+d2.DateID as idlast_update_date,
+d2.DateID as idlast_update_dateDate,
+d2.DateID as idlastYear,
+d2.DateID as idlastMonth,
+d2.DateID as idlastDay,
+d3.DateID as idDocDateVozvrat,
+d3.DateID as idDocDateVozvratDate,
+d3.DateID as idDocYear,
+d3.DateID as idDocMonth,
+d3.DateID as idDocDay,
+S.id as idType_Suppliers,
+S.id as idSuppliers,
+GP.mID as idManufactures,
+GP.id as idGoodGroups,
+GP.ggID as idGoodGroupsDopInfo,
+GP.id as idGoods,
+d.FullDateTime as created_date,
+d.FullDate as created_dateDate,
+d.Year as createdYear, 
+d.Month as createdMonth,
+d.Day as createdDay,
+d2.FullDateTime as last_update_date,
+d2.FullDate as last_update_dateDate, 
+d2.Year as lastYear,
+d2.Month as lastMonth,
+d2.Day as lastDay,
+d3.FullDateTime as DocDateVozvrat,
+d3.FullDate as DocDateVozvratDate,
+d3.Year as DocYear,
+d3.Month as DocMonth,
+d3.Day as DocDay,
+fr_docnum,
+S.type_name as type_Suppliers,
+S.name as Suppliers,
+GP.mManufactures as Manufactures,
+NULLIF(GP.attribute5, '') AS GoodGroups,
+GP.ggName as GoodGroupsDopInfo,
+GP.name as Goods,
+fr_amount,  
+fr_status,  
+fr_status_name,  
+NULLIF(fr_comment, '') as fr_comment,   
+frl_line_id,        
+d4.FullDate as expir_date,
+d4.Year as expirYear,
+d4.Month as expirMonth,
+d4.Day as expirDay,
+frl_quantity,    
+frl_price,  
+frl_amount,  
+frl_lot_number
+--COUNT(*) OVER() AS СheckDoubles -- индикатор дублей. 
+FROM fReturn
+
+-- Используем OUTER APPLY для выбора только одной строки из каждого справочника
+OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM GoodsPlusMplusGG GP 
+        WHERE frl_item_id = GP.id
+    ) GP
+
+OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM Suppliers S 
+        WHERE fr_supplier_id = S.id
+    ) S
+
+OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM Date d 
+        WHERE fr_docdate = d.FullDateTime
+    ) d
+
+ OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM Date d2 
+        WHERE fr_created_date = d2.FullDateTime
+    ) d2
+
+OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM Date d3
+        WHERE fr_last_update_date = d3.FullDateTime
+    ) d3
+
+OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM Date d4
+        WHERE frl_expir_date = d4.FullDate
+    ) d4

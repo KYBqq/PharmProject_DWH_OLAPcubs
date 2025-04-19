@@ -1,0 +1,39 @@
+﻿--- Звездообразное соединение: fStoc: GoodsPlusMplusGG (Goods, GoodGroups, Manufactures), Stores.
+
+CREATE VIEW zvezdafStocPlusManualsTEST5 AS 
+SELECT 
+    f.fs_id,
+    S.id AS idloc,
+    S.id AS idStores,
+    S.name AS Stores,
+    GP.mID AS idManu,
+    f.fsl_id AS idG,
+    GP.id AS idGG,
+    GP.ggID AS idGGDOPINFO,
+    GP.mManufactures AS Manufactures,
+    GP.attribute5 AS GoodGroups,
+    GP.ggName AS GoodGroupsDopInfo,
+    GP.name AS Goods, 
+    S.location_name AS location,
+    f.fs_id AS idlotnumber,
+    f.fs_count,
+    f.fsl_stock_id,	
+    f.fsl_quantity,	
+    NULLIF(f.fsl_lot_number, '') AS fsl_lot_number,
+    f.fsl_cogs,
+COUNT(*) OVER() AS СheckDoubles -- индикатор дублей по строкам. 
+FROM fStocTEST5 f
+
+OUTER APPLY (
+    SELECT TOP 1 * 
+    FROM Stores S
+    WHERE f.fs_id = S.id
+    ORDER BY S.id
+) S
+
+OUTER APPLY (
+    SELECT TOP 1 * 
+    FROM GoodsPlusMplusGG GP
+    WHERE f.fsl_id = GP.id
+    ORDER BY GP.id
+) GP;

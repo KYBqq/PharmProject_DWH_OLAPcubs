@@ -1,0 +1,74 @@
+-- Звездообразное-соединение: fIncom: GoodsPlusMplusGG (Goods, GoodGroups, Manufactures), Suppliers, Date.
+CREATE VIEW zvezdaFIncomePlusManualsTEST5 AS 
+    SELECT 
+        fi.fi_id AS idfInco,
+        s.id AS idSupp,
+        GP.mID AS idManu,
+        GP.id AS idGG,
+        GP.ggID AS idGGDI,
+        GP.id AS idG,
+        dDoc.DateID AS idDateFulldoc,
+        dAcc.DateID AS idDateFullacc,
+        dDoc.DateID AS idYearDoc,
+        dAcc.DateID AS idYearAcc, 
+        dDoc.DateID AS idMonthDoc,
+        dAcc.DateID AS idMonthAcc,
+        dDoc.DateID AS idDayDoc,
+        dAcc.DateID AS idDayAcc,
+        fi.fi_warehouse_id AS idSklad,
+        s.type_name AS type_Suppliers,
+        s.name AS Suppliers,
+        GP.mManufactures AS Manufactures,
+        NULLIF(GP.attribute5, '') AS GoodGroups,
+        GP.ggName AS GoodGroupsDopInfo,
+        GP.name AS Goods,
+        fi.fi_docdate,
+        fi.fi_accept_date,
+        fi.fi_status,
+        NULLIF(fi.fi_comment, '') AS fi_comment,
+        fi.fi_amount,
+        NULLIF(fi.fi_factura_invoice_num, '') AS fi_factura_invoice_num,
+        fi.fil_line_id,
+        NULLIF(fi.fil_onhand_id, '') AS fil_onhand_id,
+        fi.fil_quantity,
+        fi.fil_quantity_expected,
+        fi.fil_price,
+        fi.fil_amount,
+        fi.fil_vat_rate,
+        fi.fil_vat_sum,
+        fi.fil_sum_minus_vat,
+        NULLIF(fi.fil_lot_number, '') AS fil_lot_number,
+        NULLIF(fi.fi_waybill, '') AS fi_waybill,
+        GP.ggNotShowInShop AS NotShowInShop,
+        fi.fi_supplier_readonly_inflow,
+        COUNT(*) OVER() AS СheckDoubles -- индикатор дублей. 
+    FROM fIncomTEST5 fi
+
+    -- Используем OUTER APPLY для выбора только одной строки из каждого справочника
+    OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM GoodsPlusMplusGG GP 
+        WHERE fi.fil_item_id = GP.id
+        ORDER BY GP.id -- или другой критерий сортировки
+    ) GP
+
+    OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM Suppliers s 
+        WHERE fi.fi_supplier_id = s.id
+        ORDER BY s.id -- или другой критерий сортировки
+    ) s
+
+    OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM Date dDoc 
+        WHERE fi.fi_docdate = dDoc.FullDateTime
+        ORDER BY dDoc.FullDateTime -- или другой критерий сортировки
+    ) dDoc
+
+    OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM Date dAcc 
+        WHERE fi.fi_accept_date = dAcc.FullDateTime
+        ORDER BY dAcc.FullDateTime -- или другой критерий сортировки
+    ) dAcc;

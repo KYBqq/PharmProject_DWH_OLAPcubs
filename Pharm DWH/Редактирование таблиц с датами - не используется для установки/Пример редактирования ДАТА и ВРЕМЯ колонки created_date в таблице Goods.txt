@@ -1,0 +1,15 @@
+--Создание новой колонки
+ALTER TABLE Goods
+ADD created_date_new 
+
+--Конвертирование даты и времени с указанием правильного формата 
+UPDATE Goods
+SET created_date_new = TRY_CONVERT(DATETIME, created_date, 120)
+WHERE created_date IS NOT NULL;
+
+--120 - это формат, который нам нужен для конвертации, ранее не получилось сконверитровать. 
+
+--Проверка:
+SELECT created_date
+FROM Goods
+WHERE TRY_CONVERT(DATETIME, created_date, 120) IS NULL;

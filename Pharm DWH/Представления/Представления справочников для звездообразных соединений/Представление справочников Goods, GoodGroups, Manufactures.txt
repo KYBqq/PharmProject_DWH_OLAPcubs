@@ -1,0 +1,47 @@
+CREATE VIEW GoodsPlusMplusGG AS 
+SELECT 
+    g.id AS id,
+    g.external_id AS external_id,
+    g.group_ids AS group_ids,
+    g.group_ext_ids AS group_ext_ids,    
+    g.manufacturer_id AS manufacturer_id,
+    g.html_template_id AS html_template_id,
+    g.barcodes AS barcodes,
+    g.created_date AS created_date,        
+    g.last_update_date AS last_update_date,    
+    g.name AS name,    
+    g.description AS description,    
+    g.article AS article,    
+    g.enabled AS enabled,
+    g.sales_weight AS sales_weight,
+    g.volume AS volume,
+    g.type AS type,
+    g.weight_good_flag AS weight_good_flag,        
+    g.not_show_in_shop AS not_show_in_shop,
+    g.vat_percent AS vat_percent,
+    g.attribute1 AS attribute1,
+    g.attribute2 AS attribute2,
+    g.attribute3 AS attribute3,
+    g.attribute4 AS attribute4,
+    g.attribute5 AS attribute5,
+    g.attribute6 AS attribute6,
+    g.attribute7 AS attribute7,    
+    g.attribute8 AS attribute8,
+    g.attribute9 AS attribute9,
+    g.attribute10 AS attribute10,
+    g.attribute11 AS attribute11,
+    g.attribute12 AS attribute12,
+    g.attribute13 AS attribute13,
+    g.attribute14 AS attribute14,
+    g.attribute15 AS attribute15,
+    m.ID AS mID,            
+    m.Name AS mManufactures,
+    gg.id AS ggID,
+    gg.name AS ggName,
+    gg.not_show_in_shop AS ggNotShowInShop
+FROM  
+    [dbo].[Goods] g
+LEFT JOIN 
+    [dbo].[Manufactures] m ON g.manufacturer_id = m.id
+LEFT JOIN 
+    [dbo].[GoodGroups] gg ON g.group_ids = gg.id;

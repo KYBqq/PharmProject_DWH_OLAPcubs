@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[fStockLines] (
+    [id]         INT              NOT NULL,
+    [stock_id]   INT              NOT NULL,
+    [quantity]   DECIMAL (20, 10) NULL,
+    [lot_number] NVARCHAR (255)   NULL,
+    [cogs]       DECIMAL (20, 10) NULL
+);
+

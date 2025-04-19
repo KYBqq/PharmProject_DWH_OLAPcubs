@@ -1,0 +1,50 @@
+CREATE PROCEDURE fInsertStockFromXml
+    @FilePath NVARCHAR(255)
+AS
+BEGIN
+    PRINT 'Загрузка данных начата...';
+
+    BEGIN TRY
+        DECLARE @xmlData XML;
+        DECLARE @sql NVARCHAR(MAX);
+
+        -- Загружаем XML-данные из файла
+        SET @sql = N'SELECT @xmlData = BulkColumn
+                    FROM OPENROWSET(BULK ''' + @FilePath + ''', SINGLE_BLOB) AS FileContent;';
+        EXEC sp_executesql @sql, N'@xmlData XML OUTPUT', @xmlData OUTPUT;
+
+        -- Вставка данных в таблицу fStock (информация о складах)
+        INSERT INTO fStock (
+            id, name, count
+        )
+        SELECT
+            TRY_CONVERT(INT, warehouse.value('(id)[1]', 'NVARCHAR(255)')),
+            warehouse.value('(name)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(DECIMAL, warehouse.value('(count)[1]', 'NVARCHAR(255)'))
+        FROM @xmlData.nodes('/root/warehouses/warehouse') AS warehouse(warehouse);
+
+        -- Вставка данных в таблицу fStockLines (строки товаров), добавляем stock_id из fStock
+        INSERT INTO fStockLines (
+            id, stock_id, quantity, lot_number, cogs
+        )
+        SELECT
+            TRY_CONVERT(INT, item.value('(id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, warehouse.value('(id)[1]', 'NVARCHAR(255)')), -- stock_id из fStock
+            TRY_CAST(item.value('(quantity)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+            item.value('(lot_number)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(item.value('(cogs)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10))
+        FROM @xmlData.nodes('/root/warehouses/warehouse') AS warehouse(warehouse)
+        CROSS APPLY warehouse.nodes('items/item') AS items(item);
+
+        PRINT 'Данные успешно загружены.';
+    END TRY
+    BEGIN CATCH
+        PRINT 'Произошла ошибка при загрузке данных:';
+        PRINT 'Сообщение об ошибке: ' + ERROR_MESSAGE();
+        PRINT 'Номер ошибки: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
+        PRINT 'Серьезность ошибки: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
+        PRINT 'Состояние ошибки: ' + CAST(ERROR_STATE() AS NVARCHAR(10));
+        PRINT 'Ошибка на строке: ' + CAST(ERROR_LINE() AS NVARCHAR(10));
+        PRINT 'Ошибка в процедуре: ' + ERROR_PROCEDURE();
+    END CATCH
+END;

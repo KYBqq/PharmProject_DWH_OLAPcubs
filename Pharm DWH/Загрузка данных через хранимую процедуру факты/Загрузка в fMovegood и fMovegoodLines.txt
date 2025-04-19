@@ -1,0 +1,1 @@
+ EXEC fInsertMovegoodFromXml @FilePath = N'T:\Новая папка\Рабочий стол\movegood.xml';

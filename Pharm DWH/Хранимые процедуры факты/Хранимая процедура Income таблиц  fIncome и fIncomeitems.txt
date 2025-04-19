@@ -1,0 +1,209 @@
+CREATE PROCEDURE fInsertIncomeAndItemsFromXml
+    @FilePath NVARCHAR(255)
+AS
+BEGIN
+    PRINT 'Загрузка данных начата...';
+
+    BEGIN TRY
+        DECLARE @xmlData XML;
+        DECLARE @sql NVARCHAR(MAX);
+
+        -- Загружаем XML-данные из файла
+        SET @sql = N'SELECT @xmlData = BulkColumn
+                    FROM OPENROWSET(BULK ''' + @FilePath + ''', SINGLE_BLOB) AS FileContent;';
+        EXEC sp_executesql @sql, N'@xmlData XML OUTPUT', @xmlData OUTPUT;
+
+        -- Отладка: Проверьте, что XML загружен правильно
+        PRINT 'Проверка загрузки XML:';
+        SELECT TOP 5
+            inflow.value('(guid)[1]', 'NVARCHAR(255)') AS guid,
+            inflow.value('(id)[1]', 'NVARCHAR(255)') AS id,
+            inflow.value('(amount)[1]', 'NVARCHAR(255)') AS amount
+        FROM @xmlData.nodes('/root/inflows/inflow') AS inflow(inflow);
+
+        -- Вставка данных в таблицу fIncome
+        INSERT INTO fIncome (
+            id,
+            warehouse_id,
+            supplier_id,
+            waybill,
+            docdate,
+            status,
+            comment,
+            created_date,
+            created_by,
+            last_update_date,
+            last_update_by,
+            attribute1,
+            attribute2,
+            attribute3,
+            attribute4,
+            attribute5,
+            attribute6,
+            attribute7,
+            attribute8,
+            attribute9,
+            attribute10,
+            attribute11,
+            attribute12,
+            attribute13,
+            attribute14,
+            attribute15,
+            external_id,
+            accept_date,
+            factura_invoice_num,
+            factura_invoice_date,
+            UPD_num,
+            UPD_date,
+            correction_num,
+            parent_id,
+            guid,
+            request_id,
+            supplier_external_id,
+            supplier_name,
+            supplier_inn,
+            supplier_kpp,
+            supplier_type,
+            supplier_readonly_inflow,
+            warehouse_external_id,
+            amount,
+            adjustment,
+            overcome_id,
+            undercome_id
+        )
+        SELECT
+            TRY_CONVERT(INT, inflow.value('(id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, inflow.value('(warehouse_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, inflow.value('(supplier_id)[1]', 'NVARCHAR(255)')),
+            inflow.value('(waybill)[1]', 'NVARCHAR(255)'),
+            CASE
+    WHEN inflow.value('(docdate)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATETIME, inflow.value('(docdate)[1]', 'NVARCHAR(255)'), 120)
+END AS docdate,
+            inflow.value('(status)[1]', 'NVARCHAR(255)'),
+            inflow.value('(comment)[1]', 'NVARCHAR(MAX)'),
+            CASE
+    WHEN inflow.value('(created_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATETIME, inflow.value('(created_date)[1]', 'NVARCHAR(255)'), 120)
+END AS created_date,
+            inflow.value('(created_by)[1]', 'NVARCHAR(255)'),
+            CASE
+    WHEN inflow.value('(last_update_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATETIME, inflow.value('(last_update_date)[1]', 'NVARCHAR(255)'), 120)
+END AS last_update_date,
+            inflow.value('(last_update_by)[1]', 'NVARCHAR(255)'),
+            inflow.value('(attribute1)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute2)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute3)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute4)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute5)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute6)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute7)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute8)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute9)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute10)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute11)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute12)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute13)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute14)[1]', 'NVARCHAR(MAX)'),
+            inflow.value('(attribute15)[1]', 'NVARCHAR(MAX)'),
+            TRY_CONVERT(INT, inflow.value('(external_id)[1]', 'NVARCHAR(255)')),
+            CASE
+    WHEN inflow.value('(accept_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATETIME, inflow.value('(accept_date)[1]', 'NVARCHAR(255)'), 120)
+END AS accept_date,
+            inflow.value('(factura_invoice_num)[1]', 'NVARCHAR(255)'),
+            CASE
+    WHEN inflow.value('(factura_invoice_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATETIME, inflow.value('(factura_invoice_date)[1]', 'NVARCHAR(255)'), 120)
+END AS factura_invoice_date,
+            inflow.value('(UPD_num)[1]', 'NVARCHAR(255)'),
+            CASE
+    WHEN inflow.value('(UPD_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATETIME, inflow.value('(UPD_date)[1]', 'NVARCHAR(255)'), 120)
+END AS UPD_date, 
+            inflow.value('(correction_num)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(INT, inflow.value('(parent_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(uniqueidentifier, inflow.value('(guid)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, inflow.value('(request_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, inflow.value('(supplier_external_id)[1]', 'NVARCHAR(255)')),
+            inflow.value('(supplier_name)[1]', 'NVARCHAR(255)'),
+            inflow.value('(supplier_inn)[1]', 'NVARCHAR(255)'),
+            inflow.value('(supplier_kpp)[1]', 'NVARCHAR(255)'),
+            inflow.value('(supplier_type)[1]', 'NVARCHAR(255)'),
+            inflow.value('(supplier_readonly_inflow)[1]', 'BIT'),
+            inflow.value('(warehouse_external_id)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(inflow.value('(amount)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)) AS amount,
+            inflow.value('(adjustment)[1]', 'NVARCHAR(MAX)'),
+            TRY_CONVERT(INT, inflow.value('(overcome_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, inflow.value('(undercome_id)[1]', 'NVARCHAR(255)'))
+        FROM @xmlData.nodes('/root/inflows/inflow') AS inflow(inflow);
+
+        -- Вставка данных в таблицу fIncomeLines с добавлением GUID из fIncome
+        INSERT INTO fIncomeLines (
+            GUIDEincome,
+            line_id,
+            item_id,
+            onhand_id,
+            guid,
+            item_ext_id,
+            external_id,
+            manuf_date,
+            expir_date,
+            item_name,
+            quantity,
+            quantity_expected,
+            barcode,
+            price,
+            amount,
+            lot_number,
+            vat_rate,
+            vat_sum,
+            sum_minus_vat
+        )
+        SELECT 
+            TRY_CONVERT(uniqueidentifier, inflow.value('(guid)[1]', 'NVARCHAR(255)')) AS GUIDEincome,
+            TRY_CONVERT(INT, item.value('(line_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, item.value('(item_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, item.value('(onhand_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(uniqueidentifier, item.value('(guid)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, item.value('(item_ext_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, item.value('(external_id)[1]', 'NVARCHAR(255)')),
+CASE
+    WHEN item.value('(manuf_date)[1]', 'NVARCHAR(255)') = '0000-00-00' 
+         OR item.value('(manuf_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATE, item.value('(manuf_date)[1]', 'NVARCHAR(255)'))
+END AS manuf_date,
+
+CASE
+    WHEN item.value('(expir_date)[1]', 'NVARCHAR(255)') = '0000-00-00' 
+         OR item.value('(expir_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATE, item.value('(expir_date)[1]', 'NVARCHAR(255)'))
+END AS expir_date,
+            item.value('(item_name)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(item.value('(quantity)[1]', 'DECIMAL(20, 10)') AS DECIMAL(20, 10)),
+            TRY_CAST(item.value('(quantity_expected)[1]', 'DECIMAL(20, 10)') AS DECIMAL(20, 10)),
+            item.value('(barcode)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(item.value('(price)[1]', 'DECIMAL(20, 10)') AS DECIMAL(20, 10)),
+            TRY_CAST(item.value('(amount)[1]', 'DECIMAL(20, 10)') AS DECIMAL(20, 10)),
+            item.value('(lot_number)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(item.value('(vat_rate)[1]', 'DECIMAL(20, 10)') AS DECIMAL(20, 10)),
+            TRY_CAST(item.value('(vat_sum)[1]', 'DECIMAL(20, 10)') AS DECIMAL(20, 10)),
+            TRY_CAST(item.value('(sum_minus_vat)[1]', 'DECIMAL(20, 10)') AS DECIMAL(20, 10))
+        FROM @xmlData.nodes('/root/inflows/inflow') AS inflow(inflow)
+        CROSS APPLY inflow.nodes('items/item') AS item(item);
+
+        -- Логирование успешной загрузки
+        PRINT 'Данные успешно загружены.';
+    END TRY
+    BEGIN CATCH
+        -- Логирование ошибки
+        PRINT 'Произошла ошибка при загрузке данных:';
+        PRINT 'Сообщение об ошибке: ' + ERROR_MESSAGE();
+        PRINT 'Номер ошибки: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
+        PRINT 'Серьезность ошибки: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
+        PRINT 'Состояние ошибки: ' + CAST(ERROR_STATE() AS NVARCHAR(10));
+        PRINT 'Ошибка на строке: ' + CAST(ERROR_LINE() AS NVARCHAR(10));
+        PRINT 'Ошибка в процедуре: ' + ERROR_PROCEDURE();
+    END CATCH
+END;

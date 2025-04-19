@@ -1,0 +1,67 @@
+CREATE VIEW fMovegooTEST5 AS
+WITH cte AS (
+    SELECT  
+        fm.id AS fm_id, 
+        fm.src_warehouse_id AS fm_src_warehouse_id, 
+        fm.src_warehouse_ext_id AS fm_src_warehouse_ext_id, 
+        fm.dst_warehouse_id AS fm_dst_warehouse_id, 
+        fm.dst_warehouse_ext_id AS fm_dst_warehouse_ext_id, 
+        fm.amount AS fm_amount, 
+        fm.status AS fm_status, 
+        fm.status_name AS fm_status_name, 
+        fm.comment AS fm_comment, 
+        fm.created_date AS fm_created_date, 
+        fm.created_by AS fm_created_by, 
+        fm.last_update_date AS fm_last_update_date, 
+        fm.last_update_by AS fm_last_update_by,
+        fml.GUIDEmovegood AS fml_GUIDEmovegood, 
+        fml.line_id AS fml_line_id, 
+        fml.item_id AS fml_item_id, 
+        fml.item_ext_id AS fml_item_ext_id, 
+        fml.item_name AS fml_item_name, 
+        fml.quantity AS fml_quantity, 
+        fml.barcode AS fml_barcode, 
+        fml.price AS fml_price, 
+        fml.amount AS fml_amount, 
+        fml.manuf_date AS fml_manuf_date, 
+        fml.expir_date AS fml_expir_date, 
+        fml.lot_number AS fml_lot_number,
+        COUNT(fml.line_id) OVER (PARTITION BY fm.id) AS cnt_lines
+    FROM  
+        [dbo].[fMovegood] fm
+    LEFT JOIN 
+        [dbo].[fMovegoodLines] fml
+    ON 
+        fm.id = fml.GUIDEmovegood
+)
+SELECT 
+    fm_id, 
+    fm_src_warehouse_id, 
+    fm_src_warehouse_ext_id, 
+    fm_dst_warehouse_id, 
+    fm_dst_warehouse_ext_id, 
+    CASE 
+        WHEN cnt_lines > 0 THEN fm_amount / cnt_lines 
+        ELSE fm_amount 
+    END AS fm_amount,
+    fm_status, 
+    fm_status_name, 
+    fm_comment, 
+    fm_created_date, 
+    fm_created_by, 
+    fm_last_update_date, 
+    fm_last_update_by,
+    fml_GUIDEmovegood, 
+    fml_line_id, 
+    fml_item_id, 
+    fml_item_ext_id, 
+    fml_item_name, 
+    fml_quantity, 
+    fml_barcode, 
+    fml_price, 
+    fml_amount, 
+    fml_manuf_date, 
+    fml_expir_date, 
+    fml_lot_number,    
+    1 AS CheckDoubles
+FROM cte;

@@ -1,0 +1,60 @@
+--Звездообразное соединение fMovegoo: GoodsPlusMplusGG (Goods, GoodGroups, Manufactures), Date, Stores.
+
+CREATE VIEW zvezdaFMovegooPlusManualsTEST5 AS 
+SELECT 
+fm_id,
+GP.mID as idManu,
+GP.id as idGG,
+GP.ggID as idGGDI,
+GP.id as idG,
+S1.id as idSkladA,
+S2.id as idSkadB,
+fm_src_warehouse_id as CodeskladA,
+fm_dst_warehouse_id as CodeskadB,
+GP.mManufactures as Manufactures,
+NULLIF(GP.attribute5, '') AS GoodGroups,
+GP.ggName as GoodGroupsDopInfo,
+GP.name as Goods,
+fm_amount as AllMoveAmount,
+fm_status,
+fm_status_name,
+d.DateID as idDocDate,
+d2.DateID as idAcceptandSendandDraftDate,
+d.FullDateTime as DocDate,
+d2.FullDateTime as AcceptandSendandDraftDate, 
+NULLIF(fm_comment, '') as fm_comment,
+fml_line_id,
+fml_item_id,
+fml_quantity,
+fml_price,
+fml_amount as LineMoveAmount,
+NULLIF(fml_lot_number, '') as fml_lot_number,
+COUNT(*) OVER() AS СheckDoubles -- индикатор дублей. 
+FROM fMovegoo
+
+OUTER APPLY (
+SELECT TOP 1 * 
+FROM GoodsPlusMplusGG GP
+WHERE fml_item_id = GP.id
+ORDER BY GP.id -- или другой критерий сортировки
+) GP
+
+OUTER APPLY (
+SELECT TOP 1 * 
+FROM Date d
+WHERE fm_created_date = d.FullDateTime
+ORDER BY d.FullDateTime -- или другой критерий сортировки
+) d
+
+OUTER APPLY (
+SELECT TOP 1 * 
+FROM Date d2
+WHERE fm_last_update_date = d2.FullDateTime
+ORDER BY d2.FullDateTime -- или другой критерий сортировки
+) d2
+
+LEFT JOIN Stores S1
+ON fm_src_warehouse_id = S1.id
+
+LEFT JOIN Stores S2
+ON fm_dst_warehouse_id = S2.id

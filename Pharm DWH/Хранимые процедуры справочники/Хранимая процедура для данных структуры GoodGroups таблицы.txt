@@ -1,0 +1,56 @@
+CREATE PROCEDURE InsertGoodGroupsFromXml
+    @FilePath NVARCHAR(255)  -- Параметр для пути к файлу XML
+AS
+BEGIN
+    -- Логирование начала загрузки
+    PRINT 'Загрузка данных начата...'
+
+    BEGIN TRY
+        DECLARE @xmlData XML;
+        DECLARE @sql NVARCHAR(MAX);
+
+        -- Формируем динамический SQL для чтения файла
+        SET @sql = N'SELECT @xmlData = BulkColumn
+                    FROM OPENROWSET(BULK ''' + @FilePath + ''', SINGLE_BLOB) AS FileContent;';
+
+        -- Выполняем динамический SQL
+        EXEC sp_executesql @sql, N'@xmlData XML OUTPUT', @xmlData OUTPUT;
+
+        -- Вставка данных в таблицу GoodGroups
+        INSERT INTO GoodGroups (
+            id,
+            external_id,
+            parent_id,
+            parent_ext_id,
+            index_tree,
+            created_date,
+            last_update_date,
+            name,
+            not_show_in_shop
+        )
+        SELECT 
+            TRY_CONVERT(INT, items.value('(id)[1]', 'NVARCHAR(255)')),               
+            TRY_CONVERT(INT, items.value('(external_id)[1]', 'NVARCHAR(255)')),                     -- external_id (может быть пустым)
+            TRY_CONVERT(INT, items.value('(parent_id)[1]', 'NVARCHAR(50)')),        -- parent_id
+            TRY_CONVERT(INT, items.value('(parent_ext_id)[1]', 'NVARCHAR(255)')),                   -- parent_ext_id (может быть пустым)
+            items.value('(index_tree)[1]', 'NVARCHAR(255)'),                      -- index_tree
+            TRY_CONVERT(DATETIME, items.value('(created_date)[1]', 'NVARCHAR(40)'), 120),                     -- created_date
+            TRY_CONVERT(DATETIME, items.value('(last_update_date)[1]', 'NVARCHAR(40)'), 120),                 -- last_update_date
+            items.value('(name)[1]', 'NVARCHAR(255)'),                            -- name
+            TRY_CAST(items.value('(not_show_in_shop)[1]', 'NVARCHAR(50)') AS BIT) -- not_show_in_shop
+        FROM @xmlData.nodes('/root/item_groups/item_group') AS XMLData(items);
+
+        -- Логирование успешной загрузки
+        PRINT 'Данные успешно загружены.';
+    END TRY
+    BEGIN CATCH
+        -- Логирование ошибки
+        PRINT 'Произошла ошибка при загрузке данных:';
+        PRINT 'Сообщение об ошибке: ' + ERROR_MESSAGE();
+        PRINT 'Номер ошибки: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
+        PRINT 'Серьезность ошибки: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
+        PRINT 'Состояние ошибки: ' + CAST(ERROR_STATE() AS NVARCHAR(10));
+        PRINT 'Ошибка на строке: ' + CAST(ERROR_LINE() AS NVARCHAR(10));
+        PRINT 'Ошибка в процедуре: ' + ERROR_PROCEDURE();
+    END CATCH
+END;

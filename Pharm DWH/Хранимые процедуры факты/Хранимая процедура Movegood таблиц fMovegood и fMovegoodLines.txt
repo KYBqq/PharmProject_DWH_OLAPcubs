@@ -1,0 +1,98 @@
+CREATE PROCEDURE fInsertMovegoodFromXml
+    @FilePath NVARCHAR(255)
+AS
+BEGIN
+    PRINT 'Загрузка данных начата...';
+
+    BEGIN TRY
+        DECLARE @xmlData XML;
+        DECLARE @sql NVARCHAR(MAX);
+
+        -- Загружаем XML-данные из файла
+        SET @sql = N'SELECT @xmlData = BulkColumn
+                    FROM OPENROWSET(BULK ''' + @FilePath + ''', SINGLE_BLOB) AS FileContent;';
+        EXEC sp_executesql @sql, N'@xmlData XML OUTPUT', @xmlData OUTPUT;
+
+        -- Вставка данных в таблицу fMovegood
+        INSERT INTO fMovegood (
+            id,
+            src_warehouse_id,
+            src_warehouse_ext_id,
+            dst_warehouse_id,
+            dst_warehouse_ext_id,
+            amount,
+            status,
+            status_name,
+            comment,
+            created_date,
+            created_by,
+            last_update_date,
+            last_update_by
+        )
+        SELECT
+            TRY_CONVERT(INT, movegood.value('(id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, movegood.value('(src_warehouse_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT,movegood.value('(src_warehouse_ext_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, movegood.value('(dst_warehouse_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, movegood.value('(dst_warehouse_ext_id)[1]', 'NVARCHAR(255)')),
+            TRY_CAST(movegood.value('(amount)[1]', 'NVARCHAR(255)') AS DECIMAL(18, 2)),
+            movegood.value('(status)[1]', 'NVARCHAR(255)'),
+            movegood.value('(status_name)[1]', 'NVARCHAR(255)'),
+            movegood.value('(comment)[1]', 'NVARCHAR(255)'),
+            TRY_CONVERT(DATETIME, movegood.value('(created_date)[1]', 'NVARCHAR(255)'), 120),
+            TRY_CAST(movegood.value('(created_by)[1]', 'NVARCHAR(255)') AS DECIMAL(10, 4)),
+			TRY_CONVERT(DATETIME, movegood.value('(last_update_date)[1]', 'NVARCHAR(255)'), 120),
+            TRY_CAST(movegood.value('(last_update_by)[1]', 'NVARCHAR(255)') AS DECIMAL(10, 4))
+        FROM @xmlData.nodes('/root/movegoods/movegood') AS movegood(movegood);
+
+        -- Вставка данных в таблицу fMovegoodLines с добавлением GUIDEmovegood
+        INSERT INTO fMovegoodLines (
+            GUIDEmovegood,
+            line_id,
+            item_id,
+            item_ext_id,
+            item_name,
+            quantity,
+            barcode,
+            price,
+            amount,
+            manuf_date,
+            expir_date,
+            lot_number
+        )
+        SELECT
+            TRY_CONVERT(INT, movegood.value('(id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, item.value('(line_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, item.value('(item_id)[1]', 'NVARCHAR(255)')),
+            TRY_CONVERT(INT, item.value('(item_ext_id)[1]', 'NVARCHAR(255)')),
+            item.value('(item_name)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(item.value('(quantity)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+            item.value('(barcode)[1]', 'NVARCHAR(255)'),
+            TRY_CAST(item.value('(price)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+            TRY_CAST(item.value('(amount)[1]', 'NVARCHAR(255)') AS DECIMAL(20, 10)),
+			CASE
+    WHEN item.value('(manuf_date)[1]', 'NVARCHAR(255)') = '0000-00-00' 
+         OR item.value('(manuf_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATE, item.value('(manuf_date)[1]', 'NVARCHAR(255)'))
+END AS manuf_date,
+			CASE
+    WHEN item.value('(expir_date)[1]', 'NVARCHAR(255)') = '0000-00-00' 
+         OR item.value('(expir_date)[1]', 'NVARCHAR(255)') = '' THEN NULL
+    ELSE TRY_CONVERT(DATE, item.value('(expir_date)[1]', 'NVARCHAR(255)'))
+END AS expir_date,
+            item.value('(lot_number)[1]', 'NVARCHAR(255)')
+        FROM @xmlData.nodes('/root/movegoods/movegood') AS movegood(movegood)
+        CROSS APPLY movegood.nodes('items/item') AS item(item);
+
+        PRINT 'Данные успешно загружены.';
+    END TRY
+    BEGIN CATCH
+        PRINT 'Произошла ошибка при загрузке данных:';
+        PRINT 'Сообщение об ошибке: ' + ERROR_MESSAGE();
+        PRINT 'Номер ошибки: ' + CAST(ERROR_NUMBER() AS NVARCHAR(10));
+        PRINT 'Серьезность ошибки: ' + CAST(ERROR_SEVERITY() AS NVARCHAR(10));
+        PRINT 'Состояние ошибки: ' + CAST(ERROR_STATE() AS NVARCHAR(10));
+        PRINT 'Ошибка на строке: ' + CAST(ERROR_LINE() AS NVARCHAR(10));
+        PRINT 'Ошибка в процедуре: ' + ERROR_PROCEDURE();
+    END CATCH
+END;

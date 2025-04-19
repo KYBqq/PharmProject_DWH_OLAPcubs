@@ -1,0 +1,70 @@
+--Звездообразное-соединение: fReceipt: GoodsPlusMplusGG (Goods, GoodGroups, Manufactures), Date.
+
+CREATE VIEW zvezdafReceiptPlusManuals AS
+SELECT
+r_receipt_id,
+r_terminalid,  
+r_warehouseid,  
+r_users_id,
+r_terminal_number,
+rl_line_id,
+r_pay_bonus_id,
+d.DateID as idSellDateTime,
+d.DateID as idSellDate,
+d.DateID as idSellYear,
+d.DateID as idSellMonth,
+d.DateID as idSellDay,
+GP.mID as idManufactures,
+GP.id as idGoodGroups,
+GP.ggID as idGoodGroupsDopInfo,
+GP.id as idGoods,
+r_marker,
+r_terminal_description as Cassa,
+d.FullDateTime as SellDateTime,
+d.FullDate as SellDate,
+d.Year as SellYear, 
+d.Month as SellMonth,
+d.Day as SellDay,
+GP.mManufactures as Manufactures,
+NULLIF(GP.attribute5, '') AS GoodGroups,
+GP.ggName as GoodGroupsDopInfo,
+GP.name as Goods,
+r_doc_type,  
+r_doc_num,  
+r_discount,  
+r_discount_misc,  
+r_amount,  
+r_round_amount,  
+r_pay_cash,  
+r_pay_card,  
+r_pay_tare,  
+r_pay_credit,    
+r_pay_bonus_amount,     
+r_short_fiscal_serial_number,     
+r_vat10_sum,  
+r_vat18_sum,  
+r_vat20_sum,  
+r_items_count,    
+rl_itemid,  
+rl_quantity,  
+rl_pricebase,  
+rl_pricesale,  
+rl_discount,  
+rl_amount,   
+rl_cogs,  
+rl_vat_applied,  
+rl_vat_amount,  
+rl_onhand_id
+--COUNT(*) OVER() AS СheckDoubles -- индикатор дублей. 
+FROM fReceipt
+
+ -- Используем OUTER APPLY для выбора только одной строки из каждого справочника
+ OUTER APPLY (
+        SELECT TOP 1 * 
+        FROM GoodsPlusMplusGG GP 
+        WHERE rl_itemid = GP.id
+        ORDER BY GP.id -- или другой критерий сортировки
+    ) GP
+
+LEFT JOIN Date d
+ON r_dates = d.FullDateTime
