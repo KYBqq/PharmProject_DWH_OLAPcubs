@@ -1,0 +1,780 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="88a96564-79ae-44e0-85f9-2f21cdf052d7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>fReceipts</ID>
+  <Name>fReceipts</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1707" scrolltop="-5" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="97" x="14208" y="12488" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Date" left="-288" top="2572" logicalid="8" controlid="1" masterid="0" hint1="0" hint2="0" width="4313" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000d910000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Date" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="zvezdafReceiptPlusManuals" left="5836" top="4367" logicalid="9" controlid="2" masterid="0" hint1="0" hint2="0" width="4992" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00008013000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_zvezdafReceiptPlusManuals" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline.080.1" left="3725" top="6873" logicalid="10" controlid="3" masterid="0" hint1="0" hint2="0" width="2411" height="844" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="16448250" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[zvezdafReceiptPlusManuals-Date]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="31" destattachpoint="28" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="4025" y="7272" />
+              <point x="4930" y="7272" />
+              <point x="4930" y="7417" />
+              <point x="5836" y="7417" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline.080.1" left="3725" top="6323" logicalid="11" controlid="4" masterid="0" hint1="0" hint2="0" width="2411" height="844" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="16448250" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[zvezdafReceiptPlusManuals-Date1]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="29" destattachpoint="26" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="4025" y="6722" />
+              <point x="4930" y="6722" />
+              <point x="4930" y="6867" />
+              <point x="5836" y="6867" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline.080.1" left="3725" top="5773" logicalid="12" controlid="5" masterid="0" hint1="0" hint2="0" width="2411" height="844" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="16448250" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[zvezdafReceiptPlusManuals-Date12]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="27" destattachpoint="24" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="4025" y="6172" />
+              <point x="4930" y="6172" />
+              <point x="4930" y="6317" />
+              <point x="5836" y="6317" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline.080.1" left="3725" top="4673" logicalid="13" controlid="6" masterid="0" hint1="0" hint2="0" width="2411" height="844" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="16448250" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[zvezdafReceiptPlusManuals-Date123]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="23" destattachpoint="20" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="4025" y="5072" />
+              <point x="4930" y="5072" />
+              <point x="4930" y="5217" />
+              <point x="5836" y="5217" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline.080.1" left="3725" top="5223" logicalid="14" controlid="7" masterid="0" hint1="0" hint2="0" width="2411" height="844" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="16448250" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[zvezdafReceiptPlusManuals-Date1234]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="25" destattachpoint="22" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="4025" y="5622" />
+              <point x="4930" y="5622" />
+              <point x="4930" y="5767" />
+              <point x="5836" y="5767" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1707</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-5</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-288</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>2572</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>97</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="4b1e6d6f-995b-45cb-b42a-995a3809f005">
+      <ID>Goods fReceipts</ID>
+      <Name>Goods fReceipts</Name>
+      <DimensionID>Goods fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="82198306-454e-4a6c-9235-f9db79f2a1e9">
+          <AttributeID>Id Goods</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="30f73529-8b50-48a5-b9b7-ea0ac6bdf5de">
+          <AttributeID>Goods</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="a0411e2e-4c9b-4782-bb15-97ecfc50b7c3">
+      <ID>Manufactures fReceipts</ID>
+      <Name>Manufactures fReceipts</Name>
+      <DimensionID>Manufactures fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="6c5e28b7-0a0a-4dd8-a653-b07c9e2159c2">
+          <AttributeID>Id Manufactures</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f3ece242-63b0-4bb0-978b-ce6068155210">
+          <AttributeID>Manufactures</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="bb205207-8981-482f-941f-69929d5a7d45">
+      <ID>GoodGroupsDopInfo fReceipts</ID>
+      <Name>GoodGroupsDopInfo fReceipts</Name>
+      <DimensionID>GoodGroupsDopInfo fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="934f5c98-0fa4-45e1-b5b8-c29a3a1aecc4">
+          <AttributeID>Id Good Groups Dop Info</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a3706e40-82a3-4e21-827a-5a00adf01ef3">
+          <AttributeID>Good Groups Dop Info</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b3cca827-95a5-4732-b50b-b80a614f3af4">
+      <ID>КалендарьПродажи fReceipts</ID>
+      <Name>КалендарьПродажи fReceipts</Name>
+      <DimensionID>КалендарьПродажи fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="79a4bf58-fb43-4637-99da-0dc2125625f2">
+          <AttributeID>Id Sell Date Time</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="eecc3192-0714-42a1-a711-49c2e4b1ddf5">
+          <AttributeID>Sell Date Time</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8ceec54d-dd31-4cf0-9d5f-32e0a95b822d">
+          <AttributeID>Sell Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5ae18fef-4e59-4e16-b92d-a56bfbc22144">
+          <AttributeID>Sell Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5bd5fbab-f694-4660-b76b-1c657b86f088">
+          <AttributeID>Sell Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="eef74849-f197-4a18-b15e-ad4500169440">
+          <AttributeID>Sell Day</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="fb3c7e1c-9f2a-4cad-b492-b663ccf99027">
+      <ID>GoodGroups fReceipts</ID>
+      <Name>GoodGroups fReceipts</Name>
+      <DimensionID>GoodGroups fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="e97ed3e9-792b-4456-af1e-ada3204499ff">
+          <AttributeID>Id Good Groups</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6a49c0a9-749a-47ce-a855-453603f86c9f">
+          <AttributeID>Good Groups</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b09c8bde-d400-4f66-9c63-c463016f22cf">
+      <ID>rlOnhandId fReceipts</ID>
+      <Name>rlOnhandId fReceipts</Name>
+      <DimensionID>rlOnhandId fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="0eae2362-aa7e-4a8e-8ed0-20f52d4ea792">
+          <AttributeID>Rl Onhand Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="1dd82e03-8f1f-4a23-ad68-84530ca231db">
+      <ID>Marker fReceipts</ID>
+      <Name>Marker fReceipts</Name>
+      <DimensionID>Marker fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c1de894a-a2f3-4e8b-8d0d-0edc453809a1">
+          <AttributeID>r Receipt Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bd4f5587-6eb3-40f6-893d-5b53e64d5067">
+          <AttributeID>r Marker</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="dd8122de-c942-4d52-ae21-d8fba80ac11e">
+      <ID>Cassa fReceipts</ID>
+      <Name>Cassa fReceipts</Name>
+      <DimensionID>Cassa fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="287101d3-10ed-4731-b576-0dfc7de79b12">
+          <AttributeID>r Terminal Number</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7194c1b8-0da9-4558-bd31-126755d441fa">
+          <AttributeID>Cassa</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="c4ba80d6-d590-4fa7-b846-a67011f03085">
+      <ID>Cотрудник fReceitps</ID>
+      <Name>Cотрудник fReceitps</Name>
+      <DimensionID>Cотрудник fReceitps</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5530cdc8-ef0b-4fc2-82c9-3d4f06bb2234">
+          <AttributeID>r Users Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="6a111452-8ed5-4fe3-8799-f266590e6597">
+      <ID>Тип операции fReceipts</ID>
+      <Name>Тип операции fReceipts</Name>
+      <DimensionID>Тип операции fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ad71e04d-26df-416b-a0e0-7061af2fc1bd">
+          <AttributeID>r Receipt Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b0bc09c9-a9a7-44fe-9f42-0ee1ffd0601c">
+          <AttributeID>r Doc Type</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="e12c1f6a-fdac-4e31-9578-0ab087441b7d">
+      <ID>ID склада или Магазина в системе fReceipts</ID>
+      <Name>ID склада или Магазина в системе fReceipts</Name>
+      <DimensionID>ID склада или Магазина в системе fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="e1854b4b-00e1-4eb7-9020-1d46edcb7420">
+          <AttributeID>r Warehouseid</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="8343b11e-cf3a-4674-8266-717bf7edc281">
+      <ID>Код документа fReceipts</ID>
+      <Name>Код документа fReceipts</Name>
+      <DimensionID>Код документа fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="d58f113e-3851-4f8e-a90f-7601800eec77">
+          <AttributeID>r Doc Num</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="96c0de65-87b1-4d9b-8872-971a0a3c9c54">
+      <ID>Оплата бонусами fReceipts</ID>
+      <Name>Оплата бонусами fReceipts</Name>
+      <DimensionID>Оплата бонусами fReceipts</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5be97325-c494-4c25-83b8-e2859c0bcfbd">
+          <AttributeID>r Pay Bonus Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5bd61f76-1d9a-40ce-a7ac-c40608ac5828">
+          <AttributeID>r Pay Bonus Amount</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="5e53500d-75a2-4bf0-a8f9-5492a42d3922">
+      <ID>Zvezdaf Receipt Plus Manuals</ID>
+      <Name>fReceipts</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="cfd15d45-c36d-44f9-8874-29f0f73f551e">
+          <ID>r Discount</ID>
+          <Name>Возможно общая сумма скидки_Сумма скидки по строке чека</Name>
+          <Source dwd:design-time-name="1dc45b80-2407-409d-add9-024c9aa49a3f">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="31c5bd44-7d76-4ce0-ae41-cc791e457806">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>r_discount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="982a9a42-a312-49ac-bfe8-3e434c1425e8">
+          <ID>r Amount</ID>
+          <Name>Возможно общая сумма покупки_Сумма по строке чека_С учетом скидки</Name>
+          <Source dwd:design-time-name="4a118f07-9010-4a43-8bb8-c3726ed2eb38">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="5b80ab81-9b75-49ac-bb3e-bd4e18fae6da">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>r_amount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="1f207cc8-727f-4fd8-81a6-d99fb0bc9437">
+          <ID>r Pay Cash</ID>
+          <Name>Сумма оплата наличными</Name>
+          <Source dwd:design-time-name="59f22662-4873-4c56-a2fd-6a06ae62d3e2">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="69814f6b-da7a-4faf-a02b-cd2d36569bee">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>r_pay_cash</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5b22f695-3879-475c-9d12-c43e552e576d">
+          <ID>r Pay Card</ID>
+          <Name>Сумма оплата картой</Name>
+          <Source dwd:design-time-name="f59c89cc-c25b-4f42-99d4-bac91b934baf">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="6bfc14eb-1ab3-4c5d-88db-cd033df993b0">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>r_pay_card</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="2e6d09da-deff-4abb-9b15-80f362f6f732">
+          <ID>Rl Quantity</ID>
+          <Name>Количество товара в чеке</Name>
+          <Source dwd:design-time-name="598cd887-9ad3-4779-a75b-860a3456254e">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="b857acb7-ef1d-4b33-84cd-68553db0bff0">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>rl_quantity</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f441a3ee-9e04-42e3-872f-39b49ae26340">
+          <ID>Rl Pricebase</ID>
+          <Name>Цена по прайслисту за единицу товара_Без учета скидки</Name>
+          <Source dwd:design-time-name="3406d8a8-f190-4ed0-89da-f139297bf335">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="4ada2f81-db0e-44f8-9d95-a5f125426a11">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>rl_pricebase</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="ecae3751-c0c3-474f-a85b-9366ee064f79">
+          <ID>Rl Pricesale</ID>
+          <Name>Цена продажи за единицу товара_С учетом скидки</Name>
+          <Source dwd:design-time-name="7d4eba9f-d479-4550-8829-acd0e3db291b">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="2b538eae-80ce-443e-84a3-d6ed1bb16cb7">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>rl_pricesale</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f51a4950-513a-45d5-92d7-a30da67130fe">
+          <ID>Rl Discount</ID>
+          <Name>Сумма скидки по строке чека</Name>
+          <Source dwd:design-time-name="5950c9df-79b5-43d5-984b-7ebbc2a0834a">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d42f8a02-b2bf-4e24-912c-3cd3e602344a">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>rl_discount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="6f8a7140-7209-40cf-bd8d-d6f4562a1f6e">
+          <ID>Rl Amount</ID>
+          <Name>Сумма по строке чека_С учетом скидки</Name>
+          <Source dwd:design-time-name="52f0c203-b891-4cb3-a418-b5534e6f351a">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="675d29b7-d503-4b93-9da3-05c8302d8ce9">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>rl_amount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="23a4364a-cb4f-459c-8cd0-07f4bae760db">
+          <ID>Rl Cogs</ID>
+          <Name>Cебестоимость товара</Name>
+          <Source dwd:design-time-name="5d90cb36-1d00-4caf-82bd-fc55eaf2e882">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="3c3f84f5-d7e2-4a15-abf0-439ae2e6c33e">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>rl_cogs</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="8bbe8d06-4cb7-4103-a9e9-c9d743c074d9">
+          <ID>Rl Line Id</ID>
+          <Name>Количество транзакций</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="938c05e2-91fe-47ad-968d-33062b4041b4">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="b07972d1-5daf-48a1-b50a-8bbae86f3eeb">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c3cdfccb-4862-4b87-b7a0-04553f157ffb">
+          <ID>Rl Vat Applied</ID>
+          <Name>Rl Vat Applied</Name>
+          <Source dwd:design-time-name="47be9752-3196-445f-88d4-7d0c9377af87">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0fbda3d6-132d-4f59-be0b-ab9176c2b0ad">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+              <ColumnID>rl_vat_applied</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="08af2df3-d8f5-4060-a3d3-a85997b3f062">
+          <ID>Rl Discount 1</ID>
+          <Name>Количество чеков со скидкой</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="09c30a6b-9eed-4988-8ebd-9305cb3106fc">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="145c11b0-9544-4107-8d5e-494d0b6eebc7">
+              <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a1bfbc60-86ea-486a-9694-67f618e4ab7f">
+          <CubeDimensionID>Goods fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="02090ac8-c83e-4f49-b657-a86ed6b7ac16">
+              <AttributeID>Id Goods</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d94532f9-c0f3-4259-8209-b5b063926ddd">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="09923272-eb4d-48f4-84b0-72cc532b8fad">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>idGoods</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1f4d7696-92c5-4c70-97cc-18a38df31d36">
+          <CubeDimensionID>Manufactures fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="40b61e65-287c-49bb-ab5d-7d9da54cd012">
+              <AttributeID>Id Manufactures</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="15dbedc2-2699-4a93-a67b-bfecef9688f1">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="12657266-6c3e-4dc9-b3e1-5ec8a82a487d">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>idManufactures</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="106feeaa-a01e-41f9-99cf-ba7f6fee04c9">
+          <CubeDimensionID>GoodGroupsDopInfo fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bea09817-6df1-42a8-a82f-17aee9f109cc">
+              <AttributeID>Id Good Groups Dop Info</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="16b5365f-58dc-47cf-81ba-7cd82ea7efc1">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c74a4632-421b-4181-9d40-e459d3badda9">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>idGoodGroupsDopInfo</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="9c509e56-99e3-48ef-9492-7a27e36d3481">
+          <CubeDimensionID>КалендарьПродажи fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c6d25361-42c8-4b1f-9453-9abd22934aee">
+              <AttributeID>Id Sell Date Time</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="bb042169-87be-43c9-b53f-c4ecb6f47243">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="09965a5e-e6be-4684-af51-4419441e8e58">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>idSellDateTime</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="918336e5-34f2-4cfe-b1f2-44637e1b3b75">
+          <CubeDimensionID>GoodGroups fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e3a1b9ed-a0ac-41d6-8827-340aa926757a">
+              <AttributeID>Id Good Groups</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="462cf6ee-d372-461c-b070-84f216098155">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d5ecba72-e286-437c-936f-e8d4795b9cee">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>idGoodGroups</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e31dab69-198b-4ae7-a237-0c1b95edccb9">
+          <CubeDimensionID>rlOnhandId fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="8897c8c1-6c3b-4e08-96c3-886ec74d6248">
+              <AttributeID>Rl Onhand Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2989457f-93bb-4e3e-9d49-f084b60e5a40">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a3d03d36-f7fb-4934-b783-ebde6fb9fd64">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>rl_onhand_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="6d3e5d63-d23a-4fab-b431-17af65eecfbe">
+          <CubeDimensionID>Marker fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e957f50a-51a0-41d3-b23c-5dd3b3213291">
+              <AttributeID>r Receipt Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2c6b8b69-dd39-4092-bb48-8dbe60b74b03">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b8dd2dbf-edf6-4329-ad18-3a419600353c">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>r_receipt_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0e5113b6-0ae5-48f5-8ba6-a4e8e426bf72">
+          <CubeDimensionID>Cassa fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="69246b43-a2e2-4c62-9e1f-026089adab8c">
+              <AttributeID>r Terminal Number</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="02007df7-db55-4162-bfbf-cecaf048d9e9">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d739d2e8-8768-4c2a-893f-fd5d7fd92275">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>r_terminal_number</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="943bad0e-e631-4a37-b12f-6fea1621a37d">
+          <CubeDimensionID>Cотрудник fReceitps</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="3aafa701-f3d9-4003-a965-3b0cdcfd6b3c">
+              <AttributeID>r Users Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1d871aea-0f2b-46c6-a8db-11a26589fe21">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="25a7d497-da79-41fa-a93f-eca79c76e631">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>r_users_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="7513499a-c60c-42cc-8920-6920fc4709cb">
+          <CubeDimensionID>Тип операции fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="be6bce7c-ffc0-4e45-a9f3-dcb0494a889a">
+              <AttributeID>r Receipt Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c52589a3-e36d-47d9-8bfc-6d962aa64edb">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e8627aa4-485f-45e4-a83b-234b51550cf0">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>r_receipt_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1c5a1fc7-a8f2-49ef-b249-bae53917ec7c">
+          <CubeDimensionID>ID склада или Магазина в системе fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="823f12b5-e901-4c9c-8636-988d0f5b8f4b">
+              <AttributeID>r Warehouseid</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2de17cf8-dce9-403b-8909-0c532ba8cb7d">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3b250a6c-304c-434b-8183-3fa1a0860205">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>r_warehouseid</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="640555de-9079-424d-9c78-fcdbdef23fe0">
+          <CubeDimensionID>Код документа fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c3f8fb31-6fab-49b9-9e8f-27b0b3a2c2d6">
+              <AttributeID>r Doc Num</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6b098d94-54f3-4971-a35e-f3611cead8dd">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6fb5cfc9-f516-4001-b5f2-75499b6b2dae">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>r_doc_num</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0729f420-388b-47b2-a52c-f4faaf69ce5f">
+          <CubeDimensionID>Оплата бонусами fReceipts</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d05ca157-999a-471b-ba0a-2aa125c8bddd">
+              <AttributeID>r Pay Bonus Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f404d648-3e11-46ec-8adc-037260fabc5a">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="53e6d700-ea14-4961-99ae-69466fc1135e">
+                    <TableID>dbo_zvezdafReceiptPlusManuals</TableID>
+                    <ColumnID>r_pay_bonus_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="0b289f90-6aa9-429c-956e-e75d274bb6b4">
+    <DataSourceViewID>fReceipts</DataSourceViewID>
+  </Source>
+  <MdxScripts>
+    <MdxScript dwd:design-time-name="6044cc06-1a65-4b01-bf68-85984c168e3d">
+      <ID>MdxScript</ID>
+      <Name>MdxScript</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Commands>
+        <Command>
+          <Text>/*
+Команда CALCULATE контролирует агрегатное выражение конечных ячеек в кубе.
+Удаление или изменение команды CALCULATE приведет к изменению данных, содержащихся в кубе.
+Эту команду следует изменять только в том случае, если способ статистической обработки куба задается вручную.
+*/
+CALCULATE;  
+CREATE MEMBER CURRENTCUBE.[Measures].[Cредний чек]
+ AS ([Measures].[Цена по прайслисту за единицу товара_Без учета скидки]) / ([Measures].[Количество транзакций]), 
+VISIBLE = 1;   
+CREATE MEMBER CURRENTCUBE.[Measures].[Маржинальность]
+ AS ([Measures].[Цена по прайслисту за единицу товара_Без учета скидки] - [Measures].[Cебестоимость товара]) / [Measures].[Цена по прайслисту за единицу товара_Без учета скидки], 
+VISIBLE = 1; 
+CREATE MEMBER CURRENTCUBE.[Measures].[Рентабельность]
+ AS ([Measures].[Цена по прайслисту за единицу товара_Без учета скидки] - [Measures].[Cебестоимость товара]) * [Measures].[Количество товара в чеке], 
+VISIBLE = 1  ; </Text>
+        </Command>
+      </Commands>
+    </MdxScript>
+  </MdxScripts>
+</Cube>

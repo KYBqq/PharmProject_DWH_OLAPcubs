@@ -1,0 +1,306 @@
+﻿<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <ProductVersion>16.0.20820.0</ProductVersion>
+  <SchemaVersion>9.0.2.10</SchemaVersion>
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <Database>
+    <Name>CubFIncome.database</Name>
+    <FullPath>CubFIncome.database</FullPath>
+  </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>fMovegood.cube</Name>
+      <FullPath>fMovegood.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>fMovegood.partitions</Name>
+          <FullPath>fMovegood.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>fIncome.cube</Name>
+      <FullPath>fIncome.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>fIncome.partitions</Name>
+          <FullPath>fIncome.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>fStock.cube</Name>
+      <FullPath>fStock.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>fStock.partitions</Name>
+          <FullPath>fStock.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>fReceipts.cube</Name>
+      <FullPath>fReceipts.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>fReceipts.partitions</Name>
+          <FullPath>fReceipts.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>fReturns.cube</Name>
+      <FullPath>fReturns.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>fReturns.partitions</Name>
+          <FullPath>fReturns.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>GoodGroups fIncome.dim</Name>
+      <FullPath>GoodGroups fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Календарь fIncome.dim</Name>
+      <FullPath>Календарь fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Manufactures fIncome.dim</Name>
+      <FullPath>Manufactures fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Suppliers fIncome.dim</Name>
+      <FullPath>Suppliers fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroupsDOPINFO fIncome.dim</Name>
+      <FullPath>GoodGroupsDOPINFO fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Sklad fIncome.dim</Name>
+      <FullPath>Sklad fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Status fIncome.dim</Name>
+      <FullPath>Status fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Календарь fMovegood.dim</Name>
+      <FullPath>Календарь fMovegood.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Goods fMovegood.dim</Name>
+      <FullPath>Goods fMovegood.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroups fMovegood.dim</Name>
+      <FullPath>GoodGroups fMovegood.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroupsDOPINFO fMovegood.dim</Name>
+      <FullPath>GoodGroupsDOPINFO fMovegood.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Manufactures fMovegood.dim</Name>
+      <FullPath>Manufactures fMovegood.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Status fMovegood.dim</Name>
+      <FullPath>Status fMovegood.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SkladA fMovegood.dim</Name>
+      <FullPath>SkladA fMovegood.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SkladB fMovegood.dim</Name>
+      <FullPath>SkladB fMovegood.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Goods fIncome.dim</Name>
+      <FullPath>Goods fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Cod Sklada fStock.dim</Name>
+      <FullPath>Cod Sklada fStock.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Goods Current Balance fStock.dim</Name>
+      <FullPath>Goods Current Balance fStock.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroups Current Balance fStock.dim</Name>
+      <FullPath>GoodGroups Current Balance fStock.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Stores fStock.dim</Name>
+      <FullPath>Stores fStock.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Manufactures fStock.dim</Name>
+      <FullPath>Manufactures fStock.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroupsDOPINFO fStock.dim</Name>
+      <FullPath>GoodGroupsDOPINFO fStock.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Locations fStock.dim</Name>
+      <FullPath>Locations fStock.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Onhand Id fIncome.dim</Name>
+      <FullPath>Onhand Id fIncome.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Date.dim</Name>
+      <FullPath>Date.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Goods fReceipts.dim</Name>
+      <FullPath>Goods fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Date 1.dim</Name>
+      <FullPath>Date 1.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Goods fReturns.dim</Name>
+      <FullPath>Goods fReturns.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroups fReceipts.dim</Name>
+      <FullPath>GoodGroups fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Manufactures fReceipts.dim</Name>
+      <FullPath>Manufactures fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroupsDopInfo fReceipts.dim</Name>
+      <FullPath>GoodGroupsDopInfo fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>КалендарьПродажи fReceipts.dim</Name>
+      <FullPath>КалендарьПродажи fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>rlOnhandId fReceipts.dim</Name>
+      <FullPath>rlOnhandId fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Marker fReceipts.dim</Name>
+      <FullPath>Marker fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Cassa fReceipts.dim</Name>
+      <FullPath>Cassa fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Cотрудник fReceitps.dim</Name>
+      <FullPath>Cотрудник fReceitps.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Тип операции fReceipts.dim</Name>
+      <FullPath>Тип операции fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ID склада или Магазина в системе fReceipts.dim</Name>
+      <FullPath>ID склада или Магазина в системе fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Код документа fReceipts.dim</Name>
+      <FullPath>Код документа fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Оплата бонусами fReceipts.dim</Name>
+      <FullPath>Оплата бонусами fReceipts.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroups fReturns.dim</Name>
+      <FullPath>GoodGroups fReturns.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GoodGroupsDOPINFO fReturns.dim</Name>
+      <FullPath>GoodGroupsDOPINFO fReturns.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Manufactures fReturns.dim</Name>
+      <FullPath>Manufactures fReturns.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Suppliers fReturns.dim</Name>
+      <FullPath>Suppliers fReturns.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Last_update_date fReturns.dim</Name>
+      <FullPath>Last_update_date fReturns.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Created_Date fReturns.dim</Name>
+      <FullPath>Created_Date fReturns.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DocDateVozrat fReturns.dim</Name>
+      <FullPath>DocDateVozrat fReturns.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>DWH.ds</Name>
+      <FullPath>DWH.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>fIncome.dsv</Name>
+      <FullPath>fIncome.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>fMovegood.dsv</Name>
+      <FullPath>fMovegood.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>fStock.dsv</Name>
+      <FullPath>fStock.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>fReceipts.dsv</Name>
+      <FullPath>fReceipts.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>fReturns.dsv</Name>
+      <FullPath>fReturns.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
+  <Roles>
+    <ProjectItem>
+      <Name>1.role</Name>
+      <FullPath>1.role</FullPath>
+    </ProjectItem>
+  </Roles>
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>DWH Для Lasmart</Id>
+            <Name>DWH Для Lasmart</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=DESKTOP-9PGL524;Integrated Security=SSPI;Initial Catalog=DWH для Lasmart</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>DWH Для Lasmart</Id>
+            <Name>DWH Для Lasmart</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

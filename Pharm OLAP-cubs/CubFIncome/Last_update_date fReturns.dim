@@ -1,0 +1,177 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="72edcd38-1b99-405b-b326-e25926631f22" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Last_update_date fReturns</ID>
+  <Name>Last_update_date fReturns</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="508ea4eb-3c7b-4176-9cb7-d6c3b3988751">
+    <DataSourceViewID>fReturns</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="1f2ad4c7-8ccd-46ab-b2c5-28a5902ac930">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="68ad6b87-fa85-4ab1-b7d4-a4f621684705">
+      <ID>Idlast Update Date</ID>
+      <Name>Idlast Update Date</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="666fd912-32c6-4acd-aef2-960e8d8423e7">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1d5fdaa8-b0b6-4547-b964-c2ca521d9730">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>idlast_update_date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="378a0ad1-1b67-4b1b-85e3-69c35164bf52">
+          <AttributeID>Last Update Date</AttributeID>
+          <Name>Last Update Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="56a5d8ee-0202-4993-83d4-fd23094a5fbf">
+          <AttributeID>Last Update Date Date</AttributeID>
+          <Name>Last Update Date Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e661a20f-8eaf-40f2-ad42-157d3b554c7b">
+          <AttributeID>Last Year</AttributeID>
+          <Name>Last Year</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c7c0e038-7e71-43ab-846f-a04f7aed34f1">
+          <AttributeID>Last Month</AttributeID>
+          <Name>Last Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9d035dd4-1837-4787-9ba8-6cbed5a2a211">
+          <AttributeID>Last Day</AttributeID>
+          <Name>Last Day</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d525286c-754e-495a-bba6-3467895c39a9">
+      <ID>Last Update Date</ID>
+      <Name>Last Update Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4ccc2b5f-bd3c-4bde-98db-299da4bb2b86">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6c5c15e0-3d18-4169-9b4f-be85ebeee350">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>last_update_date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ad03850e-b34b-494d-9223-3f5c63656655">
+      <ID>Last Update Date Date</ID>
+      <Name>Last Update Date Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6c54c5aa-01d7-4df4-a65c-7a4980731617">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5a51452e-6f3f-405f-9e26-d19d77cec945">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>last_update_dateDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="21486b4c-bccc-4c1f-91e6-66a46f84a2df">
+      <ID>Last Year</ID>
+      <Name>Last Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fdc409dd-887b-4d6a-9f61-205e50627e76">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eece857d-412a-4ad7-b9ad-f2cedd774c84">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>lastYear</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4c3f516f-fdba-4c1d-9cdd-376e641657eb">
+      <ID>Last Month</ID>
+      <Name>Last Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d2d062be-647f-4fd3-9215-82e4617151c1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c21ce2f8-c15e-4fc2-81ac-11f2ab9b2c48">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>lastMonth</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="53f64816-2092-479b-ad56-b4700dae09d0">
+      <ID>Last Day</ID>
+      <Name>Last Day</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="681e762a-a8d2-45bd-8a74-6f82d5fa6cf3">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7782448d-73d8-4a0e-b77f-06f378bae41f">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>lastDay</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

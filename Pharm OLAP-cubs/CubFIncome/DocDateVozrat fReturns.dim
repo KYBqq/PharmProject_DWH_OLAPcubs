@@ -1,0 +1,177 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c703fc95-e075-47c9-b070-9049f1580b68" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DocDateVozrat fReturns</ID>
+  <Name>DocDateVozrat fReturns</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="26069694-aa27-4716-96b4-0e461e5d8a62">
+    <DataSourceViewID>fReturns</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="35a78658-f7ea-4959-a658-a45ab52ce94b">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="d1f37fc3-8fff-4846-89bd-035b2c298cb0">
+      <ID>Id Doc Date Vozvrat</ID>
+      <Name>Id Doc Date Vozvrat</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="36cadab2-2be8-4c40-8d1e-7d4879e7dccd">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="309b9556-316c-4973-84f0-03f9f91ae102">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>idDocDateVozvrat</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="cfff5d86-9386-402e-9d9a-0891e820f9aa">
+          <AttributeID>Doc Date Vozvrat</AttributeID>
+          <Name>Doc Date Vozvrat</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="709e5a3c-f23b-4036-8bcc-f749a815cdae">
+          <AttributeID>Doc Date Vozvrat Date</AttributeID>
+          <Name>Doc Date Vozvrat Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="56e99a4d-4f3d-411f-9287-6c39eb71b594">
+          <AttributeID>Doc Year</AttributeID>
+          <Name>Doc Year</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b420883c-e45d-445c-b952-7a1b74c0705d">
+          <AttributeID>Doc Month</AttributeID>
+          <Name>Doc Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1e54ca73-c859-4ff6-b547-2e1a7a795aff">
+          <AttributeID>Doc Day</AttributeID>
+          <Name>Doc Day</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7452bb20-f13a-4f2c-8047-9bc3cd991704">
+      <ID>Doc Date Vozvrat</ID>
+      <Name>Doc Date Vozvrat</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="779d9978-8eac-4168-a8f7-6d54223fde1e">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f7652ef9-35ef-487f-8516-ea67a1a43293">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>DocDateVozvrat</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="024f9897-16b9-4c89-9ab0-47fe6587e3e3">
+      <ID>Doc Date Vozvrat Date</ID>
+      <Name>Doc Date Vozvrat Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="73145ac6-4aa8-4e43-9dd1-d8174acb23b4">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7127431d-df03-4393-9ca0-a6c5de4e4d7b">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>DocDateVozvratDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6c1af710-fcce-4ab6-b225-19d434b51d63">
+      <ID>Doc Year</ID>
+      <Name>Doc Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ca180b7b-e532-46d1-91ee-97509b27969a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="91ccb7ef-aa13-4b26-9df3-315aaadbcb36">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>DocYear</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a0a60116-a91a-4682-be39-477387e1f507">
+      <ID>Doc Month</ID>
+      <Name>Doc Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5500eda0-dc88-4347-9a9f-0d2911789214">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3cf37da4-70fa-433e-9dce-32384fc939e0">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>DocMonth</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bf8d1d6f-3013-4bb8-ad21-bd2bde5a9a33">
+      <ID>Doc Day</ID>
+      <Name>Doc Day</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5b32eadf-c38b-4fb8-8847-bfbce4fe088d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ea7870c6-a9d3-416a-b67d-0f060ab11ae9">
+            <TableID>dbo_zvezdafReturnPlusManuals</TableID>
+            <ColumnID>DocDay</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

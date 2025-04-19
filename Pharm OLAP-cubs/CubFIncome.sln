@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "CubFIncome", "CubFIncome\CubFIncome.dwproj", "{B4EAA431-2C6E-DFAE-69F7-2A5EB8FDB629}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4EAA431-2C6E-DFAE-69F7-2A5EB8FDB629}.Development|Default.ActiveCfg = Development
+		{B4EAA431-2C6E-DFAE-69F7-2A5EB8FDB629}.Development|Default.Build.0 = Development
+		{B4EAA431-2C6E-DFAE-69F7-2A5EB8FDB629}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {914B28E5-0792-462D-BBFD-A484232031F2}
+	EndGlobalSection
+EndGlobal

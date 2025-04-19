@@ -1,0 +1,7 @@
+--CреднееЗначениеПоставки для OLAP-куба CubfIncome.
+
+IIF(
+    [Measures].[Количество строк] = 0, 
+    NULL, 
+    [Measures].[Fi Amount] / [Measures].[Количество строк]
+)

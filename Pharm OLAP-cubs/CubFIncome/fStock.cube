@@ -1,0 +1,358 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="8589d229-8274-4eee-b6d4-d3661675f0f8" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>fStock</ID>
+  <Name>fStock</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="7" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-621" scrolltop="-7633" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="14288" y="12488" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900180380100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="zvezdafStocPlusManuals" left="3069" top="2249" logicalid="4" controlid="1" masterid="0" hint1="0" hint2="0" width="3810" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000e20e000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj />
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" left="6999" top="-2633" logicalid="5" controlid="2" masterid="0" hint1="0" hint2="0" width="3810" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000e20e000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj />
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="zvezdafStocPlusManuals" left="6999" top="4867" logicalid="6" controlid="3" masterid="0" hint1="0" hint2="0" width="3810" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000e20e000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_zvezdafStocPlusManuals" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-621</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-7633</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>3069</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-2633</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="b5e86c16-f58e-437a-a268-f95808d594de">
+      <ID>Cod Sklada fStock</ID>
+      <Name>Cod Sklada fStock</Name>
+      <DimensionID>Cod Sklada fStock</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a7cb0e27-47ac-428e-9700-2b74ef8c6d27">
+          <AttributeID>Fs Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="596b0e7f-53ce-412f-9895-41856f2edb76">
+      <ID>Goods Current Balance fStock</ID>
+      <Name>Goods Current Balance fStock</Name>
+      <DimensionID>Goods Current Balance fStock</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="3ef62d5b-2ffe-4c6b-8084-fe7104738fed">
+          <AttributeID>Id G</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a0c58db0-5086-4ec9-a04b-14448d9904ba">
+          <AttributeID>Goods</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="d8f90184-bc94-4891-b675-8478cc8f803a">
+      <ID>GoodGroups Current Balance fStock</ID>
+      <Name>GoodGroups Current Balance fStock</Name>
+      <DimensionID>GoodGroups Current Balance fStock</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ccd321a4-1c0e-4c09-988e-ae62838d6f7b">
+          <AttributeID>Id GG</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5c5371d0-5ffb-49f7-84d6-08d429d31551">
+          <AttributeID>Good Groups</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="28cf17b5-93ba-494e-a69b-7ca35e062956">
+      <ID>Locations fStock</ID>
+      <Name>Locations fStock</Name>
+      <DimensionID>Locations fStock</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="dca531e4-d820-46be-872f-c70c60815702">
+          <AttributeID>Idloc</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8a8ffaa2-1ed7-44cc-89eb-a71f0d2c9632">
+          <AttributeID>Location</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="5eb73e06-7b8c-4e81-8aa5-299ad182bad7">
+      <ID>Manufactures fStock</ID>
+      <Name>Manufactures fStock</Name>
+      <DimensionID>Manufactures fStock</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="bcebe1fa-3655-4900-b441-6c45cfaec4d3">
+          <AttributeID>Id Manu</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="22376d63-f0b3-4436-b9d5-69f8f7a6ca8e">
+          <AttributeID>Manufactures</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="65afa96d-b1b9-4a1b-bf90-f1e39d495602">
+      <ID>Stores fStock</ID>
+      <Name>Stores fStock</Name>
+      <DimensionID>Stores fStock</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="7ef97c4d-2e48-48a6-99af-ad48773c1384">
+          <AttributeID>Id Stores</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="327f02e0-6374-47a1-a9fe-b489e24dbfec">
+          <AttributeID>Stores</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="60e6fb03-487d-479c-839a-3b251448df96">
+      <ID>GoodGroupsDOPINFO fStock</ID>
+      <Name>GoodGroupsDOPINFO fStock</Name>
+      <DimensionID>GoodGroupsDOPINFO fStock</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5f1db13b-83fd-4cce-aaf1-dcbacb367e17">
+          <AttributeID>Id GGDOPINFO</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f67887cb-8195-4328-aeb8-ea97771d03d8">
+          <AttributeID>Good Groups Dop Info</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="aff31358-6266-4fec-83bc-7c7beeb9e0ed">
+      <ID>Zvezdaf Stoc Plus Manuals</ID>
+      <Name>fStock</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="44903914-2542-4e31-a53a-8b67b26cfb11">
+          <ID>Fs Count</ID>
+          <Name>Fs Count</Name>
+          <Source dwd:design-time-name="f2f2618d-0301-4884-b040-800be3ee330e">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="cd00fcca-ea97-485f-86a5-9233e7323d71">
+              <TableID>dbo_zvezdafStocPlusManuals</TableID>
+              <ColumnID>fs_count</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="2bc18710-2225-45e8-9b09-5463f910ab3d">
+          <ID>Fsl Quantity</ID>
+          <Name>Количество</Name>
+          <Source dwd:design-time-name="b142ab24-676d-4dee-a45f-cd6790cedee7">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="33ebe071-4877-4ff4-96dc-1cf47bf1f659">
+              <TableID>dbo_zvezdafStocPlusManuals</TableID>
+              <ColumnID>fsl_quantity</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="d6d999fe-704e-4834-b334-7acbaba04a97">
+          <ID>Fsl Cogs</ID>
+          <Name>Себестоимость</Name>
+          <Source dwd:design-time-name="778c0d42-9f36-4e41-bb89-1506af070b0b">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="310b31bb-bb74-4cb5-bc47-42d2207bd02b">
+              <TableID>dbo_zvezdafStocPlusManuals</TableID>
+              <ColumnID>fsl_cogs</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="3e78ffa9-efa3-4f7e-99e0-4da5b6779fec">
+          <CubeDimensionID>Cod Sklada fStock</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2aa372d9-cf0a-40e5-8c78-4bc75dcc15f6">
+              <AttributeID>Fs Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2be01756-b4ae-4088-bced-079d7ff371bf">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b8cf21e6-7ce5-4040-97e8-cbbbdb78c1a3">
+                    <TableID>dbo_zvezdafStocPlusManuals</TableID>
+                    <ColumnID>fs_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f2ed2a77-b09a-44a8-81a8-51d98e1a54bd">
+          <CubeDimensionID>Goods Current Balance fStock</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="9387f57c-45a8-45bd-b7c0-e5814503814c">
+              <AttributeID>Id G</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d5a8d3c9-2fa3-4193-ab74-cf654bfe9948">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="166e0806-8487-4fdb-a824-4917fe11fbd0">
+                    <TableID>dbo_zvezdafStocPlusManuals</TableID>
+                    <ColumnID>idG</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4bf0b5f2-3b2c-4d75-9ddf-e0a85a12746e">
+          <CubeDimensionID>GoodGroups Current Balance fStock</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="db80f002-6f94-4770-a6fc-4ce16b803429">
+              <AttributeID>Id GG</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="64ce40c7-9508-4fa4-a360-137300ad5a4b">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f5ae4240-d6f9-4f87-bbfd-d26c050bad04">
+                    <TableID>dbo_zvezdafStocPlusManuals</TableID>
+                    <ColumnID>idGG</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="684fe105-30a5-4914-b8ec-f173adeb49b1">
+          <CubeDimensionID>Locations fStock</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="db4f2b3b-2c20-4b64-be9c-32f09fd9f89f">
+              <AttributeID>Idloc</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d7a8e3a2-57d3-426b-977f-7342be699ad6">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a284f982-4f26-403a-813a-619fafb28219">
+                    <TableID>dbo_zvezdafStocPlusManuals</TableID>
+                    <ColumnID>idloc</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="883d0718-3495-4640-bbf9-7796e883e18c">
+          <CubeDimensionID>Manufactures fStock</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c9e47a3c-7fa1-42a3-8cd1-24bed7d9c653">
+              <AttributeID>Id Manu</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8ca7e388-ba06-4827-a859-168179007e20">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6238f745-e610-4410-b649-6cdf3b03190e">
+                    <TableID>dbo_zvezdafStocPlusManuals</TableID>
+                    <ColumnID>idManu</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0ad87908-8790-4f4e-802b-9a031d20206e">
+          <CubeDimensionID>Stores fStock</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="dd60a23f-212f-4f68-a2d2-523925d81941">
+              <AttributeID>Id Stores</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="eae275bd-0b3d-44eb-a0f4-285f16577632">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ec1bf97c-ebf1-48cc-b8cc-4e7d6fe0d6ed">
+                    <TableID>dbo_zvezdafStocPlusManuals</TableID>
+                    <ColumnID>idStores</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0a9f268d-c2ec-43be-97f0-a7d617cdcac0">
+          <CubeDimensionID>GoodGroupsDOPINFO fStock</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d1bfa66d-f310-40ff-9725-980d1a52fde2">
+              <AttributeID>Id GGDOPINFO</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2ce159a5-caa6-4596-9a54-11a1d7809f90">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7354ac0f-bce5-4417-b782-dcbf97274247">
+                    <TableID>dbo_zvezdafStocPlusManuals</TableID>
+                    <ColumnID>idGGDOPINFO</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="1b6a72af-ff78-406f-9515-eb5493064eeb">
+    <DataSourceViewID>fStock</DataSourceViewID>
+  </Source>
+</Cube>

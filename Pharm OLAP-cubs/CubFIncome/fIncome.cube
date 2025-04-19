@@ -1,0 +1,450 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="3517b719-93ac-4969-822f-059210d9637d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>fIncome</ID>
+  <Name>fIncome</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="6" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4087" scrolltop="-5" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="97" x="14288" y="12488" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Date" left="139" top="7400" logicalid="3" controlid="1" masterid="0" hint1="0" hint2="0" width="4313" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000d910000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Date" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="zvezdaFIncomePlusManuals" left="20" top="0" logicalid="4" controlid="2" masterid="0" hint1="0" hint2="0" width="4551" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000c711000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_zvezdaFIncomePlusManuals" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-4087</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-5</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>97</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="fcd25cba-16b6-4884-926d-539dfaa51794">
+      <ID>Status fIncome</ID>
+      <Name>Status fIncome</Name>
+      <DimensionID>Status fIncome</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f279d135-5374-4d34-b6e3-372114ac7f5c">
+          <AttributeID>Idf Inco</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="267f31ce-23f0-411c-8c0e-e7423615440b">
+          <AttributeID>Fi Status</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="12dbd86d-435a-447f-a58e-170814cc8349">
+      <ID>GoodGroups fIncome</ID>
+      <Name>GoodGroups fIncome</Name>
+      <DimensionID>GoodGroups</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="2d1e465e-87eb-4ce9-87c9-43095db573fa">
+          <AttributeID>Id GG</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5be17c5e-574e-48d8-b1bf-e0378fd8556b">
+          <AttributeID>Good Groups</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="034b07de-aacb-4dba-8fb0-c04b24715119">
+      <ID>Календарь fIncome</ID>
+      <Name>Календарь fIncome</Name>
+      <DimensionID>Календарь</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="1d7f3ac1-3c31-4aa3-bbea-ceca8c42c893">
+          <AttributeID>Idf Inco</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="48bd299c-4509-4054-8349-8e5a5492d992">
+          <AttributeID>Fi Docdate</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5aaababb-13b6-449a-b709-b8160b88c21b">
+          <AttributeID>Fi Accept Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="81cdeb5a-ba43-47cd-96d5-974d258259d9">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="72350ebc-b5cc-4852-ac74-e0f08493f0bd">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="509c1aca-f9a3-4b0f-a705-3a7a6b52959c">
+          <AttributeID>Day</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="42aef519-72b6-4b60-bbc5-089a7f645799">
+          <AttributeID>Fi Comment</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="93c53905-77c5-44ce-8ae6-770821e407f0">
+          <HierarchyID>Иерархия</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="ba990e67-cfda-4f4b-b2bf-7c18a4d325e3">
+          <HierarchyID>Иерархия 1</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="5d039e1c-70e0-419e-8ca6-628337ec8f18">
+          <HierarchyID>Иерархия 2</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="e1462f11-1020-41d7-b751-95d901de784f">
+      <ID>Manufactures fIncome</ID>
+      <Name>Manufactures fIncome</Name>
+      <DimensionID>Manufactures</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4e04f19b-6362-4eeb-acc6-ef180ca70eb8">
+          <AttributeID>Id Manu</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8e79c744-795f-4682-ad90-1acd2da92cee">
+          <AttributeID>Manufactures</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="76a99379-d18f-434a-accc-6aab1705e32e">
+      <ID>Suppliers fIncome</ID>
+      <Name>Suppliers fIncome</Name>
+      <DimensionID>Suppliers</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="7262d1a6-d2db-4c61-bdfd-946a0e7ff36c">
+          <AttributeID>Id Supp</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9671fb6d-d7cd-4f4b-a39c-75153b86e00b">
+          <AttributeID>Type Suppliers</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e4fd8636-bd56-4682-8405-67e93d54a528">
+          <AttributeID>Suppliers</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="2f17b442-3952-4cb4-9cbd-7b8d04ee16ef">
+      <ID>Sklad fIncome</ID>
+      <Name>Sklad fIncome</Name>
+      <DimensionID>Sklad</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="1b877a78-3074-4461-9373-a741e5ad053c">
+          <AttributeID>Id Sklad</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="87bd3dac-57ab-4718-828d-fd0b2759d485">
+      <ID>Goods fIncome</ID>
+      <Name>Goods fIncome</Name>
+      <DimensionID>Goods fIncome</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="498f9833-cce8-43df-b90a-4445ba82f353">
+          <AttributeID>Id G</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6eeb0485-996f-4709-8c67-e886020c254e">
+          <AttributeID>Goods</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="11641c21-c208-4441-9898-36c6cf648158">
+      <ID>GoodGroupsDOPINFO fIncome</ID>
+      <Name>GoodGroupsDOPINFO fIncome</Name>
+      <DimensionID>GoodGroupsDOPINFO</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4345f050-eb52-45ef-90ff-322b36e35fa6">
+          <AttributeID>Id GGDI</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="370ee8d3-f50d-43d6-ae81-18fc379c99a3">
+          <AttributeID>Good Groups Dop Info</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="e91cc60d-e008-40bf-b504-d93809c23a67">
+      <ID>Onhand Id fIncome</ID>
+      <Name>Onhand Id fIncome</Name>
+      <DimensionID>Onhand Id fIncome</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4b41c2e1-ccf6-46b4-94bc-57548a0c61f1">
+          <AttributeID>Fil Onhand Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="89b7bf11-567e-4e41-a9db-6b2ead82bcca">
+      <ID>Zvezda F Income Plus Manuals</ID>
+      <Name>fIncome</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="bb275fbf-ad20-4c4e-a6b4-2bd9fb3bfa56">
+          <ID>Fi Amount</ID>
+          <Name>Сумма поставки</Name>
+          <Source dwd:design-time-name="ee6ebf2b-5035-4736-8750-478d17fd254d">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="600d96ef-6195-4928-9e56-94dc7fce8971">
+              <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+              <ColumnID>fi_amount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="7d6ed6c5-22ba-4cc5-b858-d471ba1fa1e1">
+          <ID>Fil Quantity</ID>
+          <Name>Количество товара в чеке</Name>
+          <Source dwd:design-time-name="8905a9bd-d443-4303-8081-2cfeb672c0d7">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7c4ea016-c01e-4bad-9649-a4175245cfda">
+              <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+              <ColumnID>fil_quantity</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="833353d0-849f-40a9-99b7-ac906f68f40d">
+          <ID>Fil Price</ID>
+          <Name>Цена поступления</Name>
+          <Source dwd:design-time-name="3ad26a89-82c0-4b59-9dd6-db8857334534">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="70d2d03c-6b6e-4d13-816b-b8a515ded00d">
+              <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+              <ColumnID>fil_price</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="72b36581-4ec0-4644-8357-8559355b896e">
+          <ID>Fil Amount</ID>
+          <Name>Сумма_СуммаПоставки</Name>
+          <Source dwd:design-time-name="d4150c1c-8f1f-4402-8674-0c6024de75c8">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="764c7b11-5297-4cbf-a7e9-cdf143207611">
+              <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+              <ColumnID>fil_amount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="3d738b14-c734-4b12-8674-46b665bcef20">
+          <CubeDimensionID>Status fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="9b9fd792-e094-431a-ab3f-7d4ffe833b8d">
+              <AttributeID>Idf Inco</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="222f6b68-1e14-4b57-abbc-0e6c3a25eb1c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="feff3573-9b21-4adf-812b-9a4d9733470d">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>idfInco</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="badd0abd-530b-4e52-aff8-06954828626d">
+          <CubeDimensionID>GoodGroups fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="adaa8635-bded-4b3c-89b7-e65900f8a6a9">
+              <AttributeID>Id GG</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b7770b38-5ca2-4dd1-b19f-7b844d2c4499">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f9e70bc6-960e-4904-8510-95e2fb4b8bde">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>idGG</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e27f860e-662c-4fb4-a691-c0fa9d5f8b4a">
+          <CubeDimensionID>Календарь fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e2da3a39-ec1b-45b7-b36f-30d4b4cdbd4d">
+              <AttributeID>Idf Inco</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3466ae10-d8e9-4637-ae15-ecc2eeaecf81">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0c36b319-617b-4657-94b3-e2b68bd5aca3">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>idfInco</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="085d258e-0aef-42e7-b1df-8b844f26cd4a">
+          <CubeDimensionID>Manufactures fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="87fd28a5-f2fc-4661-af8b-dc2c02f62ba0">
+              <AttributeID>Id Manu</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6498f231-efee-495a-ba5b-ddb7a46a832f">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="27cbaadb-f3b5-4420-8441-cde81cccf977">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>idManu</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c1b628b4-e9cc-428b-aaae-f6e0de490f2c">
+          <CubeDimensionID>Suppliers fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="12744bb9-3ec7-42d1-9f22-88d415ff56e7">
+              <AttributeID>Id Supp</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f01f49a5-1f02-4107-ab26-ac23759377bc">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9251b7e8-23b8-4e6a-a046-6b148fb4bec4">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>idSupp</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="5e96cc98-80f8-4b5f-8e2c-f91336bf3dd6">
+          <CubeDimensionID>Sklad fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2565dde6-6c04-4241-b6a2-a3714a398223">
+              <AttributeID>Id Sklad</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6be6a2dc-0cbf-4c89-ad10-d8e3da92376c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="326dd6de-12e1-477f-b699-6aef1bafd47a">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>idSklad</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="88277e7d-7ecb-45d5-b7f6-d67cb2d9af76">
+          <CubeDimensionID>Goods fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bf186bde-2aff-40eb-81a9-9f31b583f3e7">
+              <AttributeID>Id G</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f84e4c74-1a6a-4d91-b59c-19af1270d19c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2308c2aa-4f3b-4231-af37-670540d4af93">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>idG</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="032e0571-1f69-4c12-bc14-7451601e0630">
+          <CubeDimensionID>GoodGroupsDOPINFO fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="427cdb88-c1f1-43e6-990f-8801f01e94ec">
+              <AttributeID>Id GGDI</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1a8921c2-07ea-43f7-a5e6-74c7246bf234">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f3a07336-9cdb-4a3c-a3b4-2f3b7fa9df09">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>idGGDI</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="6f705cd7-3cf1-42e2-b300-c71d68050826">
+          <CubeDimensionID>Onhand Id fIncome</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="4be5af0c-a171-41ad-b440-7c4b77fd9d1f">
+              <AttributeID>Fil Onhand Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f28fba48-7008-436e-801f-ea414e0e2824">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5e7e2049-3fe3-4d98-a204-4d5caa3ea9dc">
+                    <TableID>dbo_zvezdaFIncomePlusManuals</TableID>
+                    <ColumnID>fil_onhand_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="446f7cfb-48bd-4620-b82c-d91270bf5481">
+    <DataSourceViewID>fIncome</DataSourceViewID>
+  </Source>
+</Cube>

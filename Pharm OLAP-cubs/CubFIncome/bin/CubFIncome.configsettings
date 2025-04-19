@@ -1,0 +1,229 @@
+﻿<ConfigurationSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Database>
+    <DataSources>
+      <DataSource>
+        <ID>DWH Для Lasmart</ID>
+        <ConnectionString>Provider=SQLOLEDB.1;Data Source=DESKTOP-9PGL524;Integrated Security=SSPI;Initial Catalog=DWH для Lasmart</ConnectionString>
+        <ImpersonationInfo>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateAccount</ImpersonationMode>
+          <Account xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Работа</Account>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">PasswordRemoved</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </DataSource>
+    </DataSources>
+    <Dimensions>
+      <Dimension>
+        <ID>GoodGroups</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Календарь</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Manufactures</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Suppliers</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroupsDOPINFO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Sklad</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Status fIncome</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Календарь fMovegood</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Goods fMovegood</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroups fMovegood</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroupsDOPINFO fMovegood</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Manufactures fMovegood</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Status fMovegood</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SkladA fMovegood</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SkladB fMovegood</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Goods fIncome</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Cod Sklada fStock</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Goods Current Balance fStock</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroups Current Balance fStock</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Stores fStock</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Manufactures fStock</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroupsDOPINFO fStock</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Locations fStock</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Onhand Id fIncome</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Date</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Goods fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Date 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Goods fReturns</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroups fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Manufactures fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroupsDopInfo fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>КалендарьПродажи fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>rlOnhandId fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Marker fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Cassa fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Cотрудник fReceitps</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Тип операции fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ID склада или Магазина в системе fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Код документа fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Оплата бонусами fReceipts</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroups fReturns</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GoodGroupsDOPINFO fReturns</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Manufactures fReturns</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Suppliers fReturns</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Last_update_date fReturns</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Created_Date fReturns</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DocDateVozrat fReturns</ID>
+      </Dimension>
+    </Dimensions>
+    <Cubes>
+      <Cube>
+        <ID>fMovegood</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Zvezda F Movegoo Plus Manuals</ID>
+            <Partitions>
+              <Partition>
+                <ID>Zvezda F Movegoo Plus Manuals</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>fIncome</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Zvezda F Income Plus Manuals</ID>
+            <Partitions>
+              <Partition>
+                <ID>Zvezda F Income Plus Manuals</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>fStock</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Zvezdaf Stoc Plus Manuals</ID>
+            <Partitions>
+              <Partition>
+                <ID>Zvezdaf Stoc Plus Manuals</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>fReceipts</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Zvezdaf Receipt Plus Manuals</ID>
+            <Partitions>
+              <Partition>
+                <ID>Zvezdaf Receipt Plus Manuals</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>fReturns</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Zvezdaf Return Plus Manuals</ID>
+            <Partitions>
+              <Partition>
+                <ID>Zvezdaf Return Plus Manuals</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+    </Cubes>
+    <DataSourceImpersonationInfo>
+      <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
+      <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+    </DataSourceImpersonationInfo>
+  </Database>
+</ConfigurationSettings>
